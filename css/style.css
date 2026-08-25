@@ -1,0 +1,39 @@
+@import url('reset.css');
+@import url('core.css');
+@import url('header.css');
+@import url('footer.css');
+@import url('custom-style.css');
+@import url('popup.css');
+/* @import url('certeficat.css'); */
+/* @import url('price-catalog.css'); */
+/* @import url('dillers-map.css'); */
+
+@media (hover: hover) and (pointer: fine) {
+}
+
+@media (max-width: 1199px) {
+	/* шаблон формули для адаптивних шрифтів і т.д. */
+	/* .main h1 {
+    font-size: calc(23px + (35 - 23) * ((100vw - 320px) / (1200 - 320)));
+      font-size: clamp(
+    50px,
+    calc(50px + (126 - 50) * ((100vw - 320px) / (2440 - 320))),
+    126px
+  );
+  } */
+}
+
+@media (max-width: 991px) {
+}
+
+@media (max-width: 576px) {
+}
+
+@media (max-width: 479px) {
+}
+
+@media (max-width: 374px) {
+}
+
+@media (max-width: 319px) {
+}
