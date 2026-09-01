@@ -4,12 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!-- Swiper -->
     <link rel="stylesheet" href="css/swiper-bundle.min.css" />
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body class="dark_theme">
     <!-- Preloader -->
     <div class="page_preloader">
       <div class="page_preloader_spinner"></div>
@@ -71,58 +80,644 @@
   
         </div>
       </div> -->
-
+      <!-- <button class="btn_popup btn">Let's Talk</button> -->
       <!-- Header -->
       <header class="header no-scroll"></header>
 
       <!-- Main content -->
       <main class="content">
         <!-- Intro section -->
-        <div class="container">
-          <h1>Title</h1>
-          <p>
-            This is the main content area. Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. Et impedit dolore ratione quis enim,
-            ipsam perspiciatis sequi ea magnam vitae tempore, maiores totam quae
-            provident! In magnam quo earum sapiente! Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Velit eveniet ducimus fuga! Quia autem
-            nostrum quasi cupiditate quod ex eius neque vel quis accusamus
-            blanditiis labore, eos temporibus commodi id. Eius laborum odit nam
-            illo quas vero quo deleniti, magni dignissimos cumque hic minima
-            temporibus eaque eum. Alias debitis, ad suscipit eligendi dolore
-            quod natus aspernatur? Modi explicabo itaque omnis! A reprehenderit
-            impedit corrupti sapiente ullam minus quas nulla, vel ipsam tempora,
-            blanditiis qui rerum nihil asperiores iure maxime, delectus quia
-            deserunt voluptas error facere? Consequuntur sint rem ut nihil.
-            Animi accusamus ipsum voluptatum commodi! Deserunt eum iste veniam
-            totam. Fuga quidem atque officiis eligendi, ipsam sunt sit minima
-            porro a facere saepe vitae, delectus odio fugiat commodi amet
-            expedita. Alias autem optio dolores magni eaque sapiente expedita,
-            necessitatibus sunt in cum vel labore? Velit error harum odio enim,
-            asperiores magni commodi beatae ducimus, exercitationem, consequatur
-            deleniti? Suscipit, in tempore. Voluptatem, vel quia error, voluptas
-            molestiae consectetur impedit facilis deserunt culpa fuga asperiores
-            enim, expedita quos? Autem assumenda nobis, accusamus doloribus
-            ipsum dolorum consectetur veritatis fuga iste rem vero obcaecati!
-            Aliquam, doloremque laborum, beatae quia obcaecati non, odit omnis
-            nobis reiciendis praesentium labore corporis eveniet vel dignissimos
-            vitae. Mollitia provident earum porro iure ex quos fugit doloremque
-            alias tempore quidem? Neque labore accusamus adipisci porro. Officia
-            recusandae repellat dolorem molestiae, odit laborum illo inventore
-            quasi odio nam dignissimos quos error saepe, quaerat nobis
-            consequatur nemo, dolor totam ex molestias repudiandae! Tempore
-            tempora voluptatum pariatur deleniti ad quidem fugiat odit nesciunt
-            facere laborum qui, quam beatae consectetur, rem ex blanditiis id ut
-            commodi laudantium quia nemo. Nulla eos maxime aspernatur facere.
-            Facilis excepturi cumque a omnis reprehenderit labore sit!
-            Doloremque eveniet culpa ducimus ipsam et! Consequuntur minima
-            perspiciatis esse quae reiciendis. A eos, explicabo sint minus
-            provident consequatur similique totam ut.
-          </p>
-          <button class="btn_popup btn">Let's Talk</button>
-        </div>
-        <!-- Accordion -->
-        <section class="accordion_section">
+        <section class="research-section section">
+          <div class="container">
+            <div class="row research-row">
+              <!-- Featured post -->
+              <div class="col-lg-7">
+                <article class="research-featured">
+                  <a href="#" class="research-featured__link">
+                    <img
+                      class="research-featured__img"
+                      src="img/hero.png"
+                      alt=""
+                    />
+
+                    <div class="research-featured__overlay"></div>
+
+                    <div class="research-featured__content">
+                      <div class="research-featured__category">Дослідження</div>
+
+                      <h2 class="research-featured__title">
+                        86% гемблерів грає у ліцензованих казино: що показав
+                        другий етап дослідження Мінцифри
+                      </h2>
+
+                      <div class="research-featured__meta">
+                        <time datetime="2025-05-08">08.05.2025</time>
+                        <!-- <time datetime="<?php echo esc_attr(get_the_date('c')); ?>">
+                          <?php echo get_the_date('d.m.Y'); ?>
+                      </time> -->
+                        <span>&#183;</span>
+                        <span>10 542 перегляди</span>
+                      </div>
+                    </div>
+                  </a>
+                </article>
+              </div>
+
+              <!-- Posts list -->
+              <div class="col-lg-5">
+                <div class="research-list">
+                  <article class="research-card">
+                    <a href="#" class="research-card__link">
+                      <div class="research-card__content">
+                        <h3 class="research-card__title">
+                          Відкриття першого кругу з казино в ЄА відкриває нову
+                          епоху в регіоні
+                        </h3>
+
+                        <time datetime="2025-05-08" class="research-card__date"
+                          >08.05.2025</time
+                        >
+                      </div>
+
+                      <div class="research-card__img">
+                        <img src="img/hero1.png" alt="" />
+                      </div>
+                    </a>
+                  </article>
+
+                  <article class="research-card">
+                    <a href="#" class="research-card__link">
+                      <div class="research-card__content">
+                        <h3 class="research-card__title">
+                          BETON оголосив про партнерство з DeFi і широкими
+                          можливостями
+                        </h3>
+
+                        <time datetime="2025-05-07" class="research-card__date"
+                          >07.05.2025</time
+                        >
+                      </div>
+
+                      <div class="research-card__img">
+                        <img src="img/hero2.png" alt="" />
+                      </div>
+                    </a>
+                  </article>
+
+                  <article class="research-card">
+                    <a href="#" class="research-card__link">
+                      <div class="research-card__content">
+                        <h3 class="research-card__title">
+                          Правила реклами в Румунії: що зміниться для операторів
+                        </h3>
+
+                        <time datetime="2025-05-06" class="research-card__date"
+                          >06.05.2025</time
+                        >
+                      </div>
+
+                      <div class="research-card__img">
+                        <img src="img/hero1.png" alt="" />
+                      </div>
+                    </a>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="last-news section">
+          <div class="container">
+            <div class="section-top">
+              <h2 class="section-title">Останні новини</h2>
+              <a href="#" class="more-btn">Дивитися всі →</a>
+            </div>
+
+            <div
+              class="row last-news-row row-cols-1 row-cols-sm-3 row-cols-lg-6 g-3"
+            >
+              <article class="last-new col">
+                <a href="#" class="last-new__link">
+                  <img src="https://loremflickr.com/198/116?random=1" alt="" />
+
+                  <div class="last-new__content">
+                    <h3 class="last-new__title">
+                      Грецька регуляторна рада: країна перетворюється на модель
+                      прозорого грального ринку
+                    </h3>
+
+                    <div class="last-new__meta">
+                      <!-- <time datetime="<?php echo esc_attr(get_the_date('c')); ?>">
+                <?php echo esc_html(get_the_date('d.m.Y H:i')); ?>
+            </time> -->
+                      <time datetime="2025-05-08T19:05">
+                        08.05.2025 &#183; 19:05
+                      </time>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="last-new col">
+                <a href="#" class="last-new__link">
+                  <img src="https://loremflickr.com/198/116?random=2" alt="" />
+
+                  <div class="last-new__content">
+                    <h3 class="last-new__title">
+                      Від Кентуккі до Невади: у яких країнах відбудуться казино
+                      у 2025 році
+                    </h3>
+
+                    <div class="last-new__meta">
+                      <time datetime="2025-05-08T19:05">
+                        08.05.2025 &#183; 19:05
+                      </time>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="last-new col">
+                <a href="#" class="last-new__link">
+                  <img src="https://loremflickr.com/198/116?random=3" alt="" />
+
+                  <div class="last-new__content">
+                    <h3 class="last-new__title">
+                      Штучний інтелект змінює гемблінг: упровадження трендів та
+                      дані
+                    </h3>
+
+                    <div class="last-new__meta">
+                      <time datetime="2025-05-08T19:05">
+                        08.05.2025 &#183; 19:05
+                      </time>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="last-new col">
+                <a href="#" class="last-new__link">
+                  <img src="https://loremflickr.com/198/116?random=4" alt="" />
+
+                  <div class="last-new__content">
+                    <h3 class="last-new__title">
+                      У ЄС набуває чинності Директива щодо захисту споживачів
+                      онлайн-гемблінгу
+                    </h3>
+
+                    <div class="last-new__meta">
+                      <time datetime="2025-05-08T19:05">
+                        08.05.2025 &#183; 19:05
+                      </time>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="last-new col-lg-2">
+                <a href="#" class="last-new__link">
+                  <img src="https://loremflickr.com/198/116?random=5" alt="" />
+
+                  <div class="last-new__content">
+                    <h3 class="last-new__title">
+                      Web3 і гральний бізнес: як блокчейн змінює правила
+                      взаємодії
+                    </h3>
+
+                    <div class="last-new__meta">
+                      <time datetime="2025-05-08T19:05">
+                        08.05.2025 &#183; 19:05
+                      </time>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="last-new col">
+                <a href="#" class="last-new__link">
+                  <img src="https://loremflickr.com/198/116?random=6" alt="" />
+
+                  <div class="last-new__content">
+                    <h3 class="last-new__title">
+                      Ринок ставок в Україні: ключові показники за квітень 2025
+                      року
+                    </h3>
+
+                    <div class="last-new__meta">
+                      <time datetime="2025-05-08T19:05">
+                        08.05.2025 &#183; 19:05
+                      </time>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section regulatory">
+          <div class="container">
+            <div class="section-top">
+              <h2 class="section-title">Регуляторні зміни</h2>
+              <a href="#" class="more-btn">Дивитися всі →</a>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+              <div class="col">
+                <article class="regulatory-card">
+                  <div class="regulatory-card__category advertisement">
+                    Реклама
+                  </div>
+
+                  <h3 class="regulatory-card__title">
+                    Верховний Суд уточнив правила реклами азартних ігор
+                  </h3>
+
+                  <div class="regulatory-card__meta">
+                    <time datetime="2026-03-03">
+                      <img
+                        src="img/calendar.svg"
+                        class="regulatory-card__icon"
+                        alt="Calendar icon"
+                      />
+                      03.03.2026
+                    </time>
+
+                    <span class="regulatory-card__tag current"> Чинний </span>
+                  </div>
+
+                  <p class="regulatory-card__text">
+                    Закон про рекламу азартних ігор може визначатися рекламою та
+                    підпадати під законодавчі обмеження.
+                  </p>
+
+                  <div class="regulatory-card__important">
+                    <strong>Що це означає:</strong>
+
+                    <p class="regulatory-card__text">
+                      Операторам і медіа необхідно враховувати рекламні
+                      обмеження навіть при простій згадці бренду.
+                    </p>
+                  </div>
+
+                  <div class="regulatory-card__links">
+                    <a href="#" class="regulatory-card__source">Джерело</a>
+                    <a href="#" class="more-btn">
+                      Детальніше
+                      <span>→</span>
+                    </a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col">
+                <article class="regulatory-card">
+                  <div class="regulatory-card__category regulation">
+                    Регулювання
+                  </div>
+
+                  <h3 class="regulatory-card__title">
+                    Запропоновано зміни до законодавства про азартні ігри
+                  </h3>
+
+                  <div class="regulatory-card__meta">
+                    <time datetime="2026-03-11">
+                      <img
+                        src="img/calendar.svg"
+                        class="regulatory-card__icon"
+                        alt="Calendar icon"
+                      />
+                      11.03.2026
+                    </time>
+
+                    <span class="regulatory-card__tag project"> Проєкт </span>
+                  </div>
+
+                  <p class="regulatory-card__text">
+                    Міністерство пропонує оновити правила та вимоги до
+                    рекламного контенту.
+                  </p>
+
+                  <div class="regulatory-card__important">
+                    <strong>Що це означає:</strong>
+
+                    <p class="regulatory-card__text">
+                      Можуть змінитися правила роботи операторів, рекламного
+                      ринку та окремих положень оподаткування.
+                    </p>
+                  </div>
+
+                  <div class="regulatory-card__links">
+                    <a href="#" class="regulatory-card__source">Джерело</a>
+                    <a href="#" class="more-btn">
+                      Детальніше
+                      <span>→</span>
+                    </a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col">
+                <article class="regulatory-card">
+                  <div class="regulatory-card__category payment_systems">
+                    Платіжні системи
+                  </div>
+
+                  <h3 class="regulatory-card__title">
+                    Верховний Суд уточнив правила реклами азартних ігор
+                  </h3>
+
+                  <div class="regulatory-card__meta">
+                    <time datetime="2026-03-03">
+                      <img
+                        src="img/calendar.svg"
+                        class="regulatory-card__icon"
+                        alt="Calendar icon"
+                      />
+                      03.03.2026
+                    </time>
+
+                    <span class="regulatory-card__tag current"> Чинний </span>
+                  </div>
+
+                  <p class="regulatory-card__text">
+                    Закон про рекламу азартних ігор може визначатися рекламою та
+                    підпадати під законодавчі обмеження.
+                  </p>
+
+                  <div class="regulatory-card__important">
+                    <strong>Що це означає:</strong>
+
+                    <p class="regulatory-card__text">
+                      Операторам і медіа необхідно враховувати рекламні
+                      обмеження навіть при простій згадці бренду.
+                    </p>
+                  </div>
+
+                  <div class="regulatory-card__links">
+                    <a href="#" class="regulatory-card__source">Джерело</a>
+                    <a href="#" class="more-btn">
+                      Детальніше
+                      <span>→</span>
+                    </a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col">
+                <article class="regulatory-card">
+                  <div class="regulatory-card__category land_based_gambling">
+                    Наземний гемблінг
+                  </div>
+
+                  <h3 class="regulatory-card__title">
+                    PlayCity оновило порядок проведення контрольного візиту
+                  </h3>
+
+                  <div class="regulatory-card__meta">
+                    <time datetime="2026-03-03">
+                      <img
+                        src="img/calendar.svg"
+                        class="regulatory-card__icon"
+                        alt="Calendar icon"
+                      />
+                      03.03.2026
+                    </time>
+
+                    <span class="regulatory-card__tag project"> Проєкт </span>
+                  </div>
+
+                  <p class="regulatory-card__text">
+                    Закон про рекламу азартних ігор може визначатися рекламою та
+                    підпадати під законодавчі обмеження.
+                  </p>
+
+                  <div class="regulatory-card__important">
+                    <strong>Що це означає:</strong>
+
+                    <p class="regulatory-card__text">
+                      Операторам і медіа необхідно враховувати рекламні
+                      обмеження навіть при простій згадці бренду.
+                    </p>
+                  </div>
+
+                  <div class="regulatory-card__links">
+                    <a href="#" class="regulatory-card__source">Джерело</a>
+                    <a href="#" class="more-btn">
+                      Детальніше
+                      <span>→</span>
+                    </a>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="info-banner-section section">
+          <div class="container">
+            <a href="#" class="info-banner">
+              <img
+                src="img/info-banner-2.png"
+                alt="Background"
+                class="info-banner__pc"
+              />
+              <img
+                src="img/info-banner-2.png"
+                alt="Background"
+                class="info-banner__mob"
+              />
+            </a>
+          </div>
+        </section>
+
+        <section class="opinions-section section">
+          <div class="container">
+            <div class="section-top">
+              <h2 class="section-title">Думки</h2>
+              <a href="#" class="more-btn">Дивитися всі →</a>
+            </div>
+
+            <div class="row opinions">
+              <div class="col opinions__item opinions-grid__item--40">
+                <div class="opinions__img">
+                  <img src="https://loremflickr.com/198/116?random=6" alt="" />
+                </div>
+                <div class="opinions__content">
+                  <div class="opinions__content_top">
+                    <div class="opinions__label aml">AML</div>
+                    <div class="opinions__meta">
+                      <time datetime="2025-05-08">08.05.2025</time>
+                    </div>
+                  </div>
+                  <h3>
+                    «Український ринок демонструє стійкість. Наступний крок —
+                    системний розвиток і довіра.»
+                  </h3>
+                  <div class="opinion__bottom">
+                    <span class="opinions__author">Ігор Зеленко</span>
+                    <span class="opinions__author-meta">Партнер, GC Legal</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col opinions__item opinions-grid__item--20">
+                <div class="opinions__img">
+                  <img src="https://loremflickr.com/198/116?random=4" alt="" />
+                </div>
+                <div class="opinions__content">
+                  <div class="opinions__content_top">
+                    <div class="opinions__label taxes">Податки</div>
+                    <div class="opinions__meta">
+                      <time datetime="2025-05-08">08.05.2025</time>
+                    </div>
+                  </div>
+                  <h3>
+                    Чому прозорі правила гри важливіші за кількість нових
+                    ліцензій
+                  </h3>
+                  <div class="opinion__bottom">
+                    <span class="opinions__author">Ім’я Прізвище</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col opinions__item opinions-grid__item--20">
+                <div class="opinions__img">
+                  <img src="https://loremflickr.com/198/116?random=5" alt="" />
+                </div>
+                <div class="opinions__content">
+                  <div class="opinions__content_top">
+                    <div class="opinions__label gambling">Онлайн-гемблінг</div>
+                    <div class="opinions__meta">
+                      <time datetime="2025-05-08">08.05.2025</time>
+                    </div>
+                  </div>
+                  <h3>
+                    Український гемблінг у 2026 році: що стримує розвиток
+                    легального ринку
+                  </h3>
+                  <div class="opinion__bottom">
+                    <span class="opinions__author">Олександр Думко</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col opinions__item opinions-grid__item--20">
+                <div class="opinions__img">
+                  <img src="https://loremflickr.com/198/116?random=6" alt="" />
+                </div>
+                <div class="opinions__content">
+                  <div class="opinions__content_top">
+                    <div class="opinions__label technologies">Технології</div>
+                    <div class="opinions__meta">
+                      <time datetime="2025-05-08">08.05.2025</time>
+                    </div>
+                  </div>
+                  <h3>
+                    Responsible Gaming має стати частиною бізнес-моделі, а не
+                    формальністю
+                  </h3>
+                  <div class="opinion__bottom">
+                    <span class="opinions__author">Сергій Величко</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="partners section">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-lg-6 companies">
+                <div class="section-top">
+                  <h2 class="section-title">Компанії</h2>
+                  <a href="#" class="more-btn">Дивитися всі →</a>
+                </div>
+
+                <div class="row companies_list">                  
+                  <div class="col-6 col-sm-3 companies_item">
+                    <div class="companies_item__img">
+                      <img src="img/logo-1.png" alt="" />
+                    </div>
+                   <strong>ТОВ “ВБЕТ УКРАЇНА”</strong>
+                   <span class="partners_meta">Букмекер</span>
+                  </div>
+
+                  <div class="col-6 col-sm-3 companies_item">
+                    <div class="companies_item__img">
+                      <img src="img/logo-2.png" alt="" />
+                    </div>
+                   <strong>ТОВ “ВБЕТ УКРАЇНА”</strong>
+                   <span class="partners_meta">Букмекер</span>
+                  </div>
+
+                  <div class="col-6 col-sm-3 companies_item">
+                    <div class="companies_item__img">
+                      <img src="img/logo-3.png" alt="" />
+                    </div>
+                   <strong>ТОВ “ВБЕТ УКРАЇНА”</strong>
+                   <span class="partners_meta">Букмекер</span>
+                  </div>
+
+                  <div class="col-6 col-sm-3 companies_item">
+                    <div class="companies_item__img">
+                      <img src="img/logo-4.png" alt="" />
+                    </div>
+                   <strong>ТОВ “ВБЕТ УКРАЇНА”</strong>
+                   <span class="partners_meta">Букмекер</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-6 experts">
+                <div class="section-top">
+                  <h2 class="section-title">Експерти</h2>
+                  <a href="#" class="more-btn">Дивитися всі →</a>
+                </div>
+
+                <div class="row experts_list">                  
+                  <div class="col-6 col-sm-3 experts_item">
+                    <div class="experts_item__img">
+                      <img src="img/expert-1.png" alt="" />
+                    </div>
+                   <strong>Михайло Зборовський</strong>
+                   <span class="partners_meta">CEO, FAVBET Tech</span>
+                  </div>
+
+                  <div class="col-6 col-sm-3 experts_item">
+                    <div class="experts_item__img">
+                      <img src="img/expert-2.png" alt="" />
+                    </div>
+                   <strong>Михайло Зборовський</strong>
+                   <span class="partners_meta">CEO, FAVBET Tech</span>
+                  </div>
+
+                  <div class="col-6 col-sm-3 experts_item">
+                    <div class="experts_item__img">
+                      <img src="img/expert-3.png" alt="" />
+                    </div>
+                   <strong>Михайло Зборовський</strong>
+                   <span class="partners_meta">CEO, FAVBET Tech</span>
+                  </div>
+
+                  <div class="col-6 col-sm-3 experts_item">
+                    <div class="experts_item__img">
+                      <img src="img/expert-1.png" alt="" />
+                    </div>
+                   <strong>Михайло Зборовський</strong>
+                   <span class="partners_meta">CEO, FAVBET Tech</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        
           <div class="container">
             <div class="accordion fade">
               <div class="accordion_item">
@@ -206,7 +801,7 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
       </main>
 
       <!-- Footer -->
@@ -222,10 +817,12 @@
     </button>
 
     <!-- Script -->
-    <script type="module" defer src="../js/include.js"></script>
+    <script type="module" defer src="js/include.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.bundle.min.js"></script>
     <!-- Swiper -->
-    <script src="../js/swiper-bundle.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
     <!-- Custom script -->
-    <script defer src="../js/main.js"></script>
+    <script defer src="js/main.js"></script>
   </body>
 </html>

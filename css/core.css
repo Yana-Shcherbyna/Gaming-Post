@@ -16,16 +16,38 @@
 
 /*Constant variables */
 :root {
-  --dark: #484848;
+  --dark: #03080f;
+  /* --bg: #03080F; */
   --light: #8fb5f9;
-  /* --bg: white; */
-  --accent: #6CD3D0;
-  --accent-light: #C9F2EC;
+
+  --article-card-bg: #091019;
+  --article-card-border: 1px solid #2d3949;
+
+  --accent: #ffab00;
+
+  /* --accent-light: #c9f2ec; */
   /* --border: 1px solid #ececec; */
-  --shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-  --border-radius: 30px;
+  /* --shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); */
+  /* --border-radius: 30px; */
   --container: 1400;
-  --font-family: "Montserrat", sans-serif;
+  --font-family: "Inter", sans-serif;
+  --color: white;
+  --color-light: #c7d1e5;
+  /* --color-date: #616B7D; */
+}
+
+body.light_theme {
+  /* --black: #fff;
+    --sub-black: #fff;
+    --super-black: #fff;
+    --white: #484848;
+    --sub-white: #383838;
+    --white-secondary: #343434;
+    --grey: #343434;
+    --sub-grey: #7a7a7a; */
+  /* --bg-color: #484848;
+  --text-color: #fff;
+  --bg-sub-color: #fff; */
 }
 /* Constant variables end */
 
@@ -35,20 +57,20 @@ body {
   margin: 0;
 }
 
-html.lock{
+html.lock {
   scrollbar-gutter: stable;
   /* за потреби */
   /* background: rgba(21, 19, 22, 0.5); */
 }
 
 body {
-  color: var(--dark);
-  background-color: var(--bg);
+  color: var(--color);
+  background-color: var(--dark);
   font-family: var(--font-family);
-  font-size: 14px;
+  font-size: 13px;
 }
 
-body.lock{
+body.lock {
   overflow: hidden;
 }
 /* Main styles */
@@ -81,7 +103,7 @@ main {
   padding: 0 20px;
 } */
 
-@media (max-width: 1440px) {
+/* @media (max-width: 1440px) {
   .container {
     max-width: 1200px;
   }
@@ -104,7 +126,7 @@ main {
     max-width: 600px;
     padding: 0 10px;
   }
-}
+} */
 
 h1,
 h2,
@@ -114,7 +136,7 @@ h5,
 h6 {
   margin-top: 0px;
   margin-bottom: 20px;
-  color: var(--dark);
+  color: var(--color);
 }
 
 h4,
@@ -124,27 +146,33 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(
-    35px,
-    calc(35px + (60 - 35) * ((100vw - 320px) / (var(--container) - 320))),
-    60px
-  );
+  font-size: 36px;
+  /* font-size: clamp(
+    26px,
+    calc(26px + (36 - 26) * ((100vw - 320px) / (var(--container) - 320))),
+    36px
+  ); */
+  font-weight: 700;
 }
 
 h2 {
-  font-size: clamp(
+  font-size: 28px;
+  /* font-size: clamp(
     25px,
-    calc(25px + (50 - 25) * ((100vw - 320px) / (var(--container) - 320))),
+    calc(25px + (28 - 25) * ((100vw - 320px) / (var(--container) - 320))),
     50px
-  );
+  ); */
+  font-weight: 700;
 }
 
 h3 {
-  font-size: clamp(
+  font-size: 16px;
+  /* font-size: clamp(
     22px,
-    calc(22px + (38 - 22) * ((100vw - 320px) / (var(--container) - 320))),
+    calc(22px + (16 - 22) * ((100vw - 320px) / (var(--container) - 320))),
     38px
-  );
+  ); */
+  font-weight: 600;
 }
 
 h4 {
@@ -167,24 +195,38 @@ h6 {
   font-size: 16px;
 }
 
-@media (max-width: 1439px) {
+time{
+  font-size: 12px;
+  color: #616B7D;
+}
+
+@media (max-width: 991px) {
   h1 {
-    font-size: 40px;
+    font-size: 32px;
   }
 }
-@media (max-width: 768px) {
-  h2 {
+
+@media (max-width: 767px) {
+  /* h2 {
     font-size: 24px;
   }
   h3 {
     font-size: 22px;
+  } */
+  h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 575px) {
+  h1 {
+    font-size: 26px;
   }
 }
 
 a {
-  color: var(--dark);
+  color: var(--color);
   font-family: var(--font-family);
-  /* font-family: 'Courier New', Courier, monospace; */
   transition: all 0.3s;
 }
 
@@ -295,10 +337,19 @@ table th {
 
 .content {
   padding-top: 100px;
-	background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
 }
 
-.d-flex {
+.section{
+  margin-bottom: 54px;
+}
+
+@media (max-width: 767px) {
+  .section{
+    margin-bottom: 34px;
+  }
+}
+/* .d-flex {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
@@ -307,33 +358,28 @@ table th {
 }
 .d-none {
   display: none !important;
-}
+} */
 
 .btn {
   display: inline-block;
-  font-size: 14px;
-  padding: 8px 15px;
-  color: var(--dark);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 18px 30px;
+  color: #0A1224;
   text-align: center;
-  border: 1px solid #8fb5f9;
-  background-color: #fff;
+  /* border: 1px solid #8fb5f9; */
+  background-color: var(--accent);
   position: relative;
-  transition: all 0.3s;
-}
-
-.btn i {
-  color: #8fb5f9;
   transition: all 0.3s;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .btn:hover {
-    background-color: #8fb5f9;
-    color: #fff;
+    /* background-color: #8fb5f9;
+    color: #fff; */
+    
   }
-  .btn:hover i {
-    color: #fff;
-  }
+  
 }
 
 .btn:active {
@@ -346,14 +392,14 @@ table th {
 }
 
 /* Fade effect */
-.fade{
+.fade {
   opacity: 0;
-  transform: translateY(30px); 
+  transform: translateY(30px);
   transition: opacity 0.6s ease, transform 0.6s ease;
   position: relative;
 }
 
-.fade.visible{
+.fade.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -396,7 +442,7 @@ table th {
   color: var(--black);
 }
 
-.error_content{
+.error_content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -446,16 +492,20 @@ table th {
   transition: 0.3s ease;
 }
 
-@media (hover: hover) and (pointer: fine){
+@media (hover: hover) and (pointer: fine) {
   .error_btn:hover {
     background-color: #000;
   }
 }
 
 @media (max-width: 2440px) {
-  .error_page{
-    padding-top: calc(60px + (120 - 60) * ((100vw - 320px) / (var(--container) - 320)));
-    padding-bottom: calc(60px + (120 - 60) * ((100vw - 320px) / (var(--container) - 320)));
+  .error_page {
+    padding-top: calc(
+      60px + (120 - 60) * ((100vw - 320px) / (var(--container) - 320))
+    );
+    padding-bottom: calc(
+      60px + (120 - 60) * ((100vw - 320px) / (var(--container) - 320))
+    );
   }
 }
 /* Page 404 end */
@@ -527,7 +577,11 @@ table th {
   color: white;
   margin-bottom: 0;
   /* font-size: clamp(45px, calc(45px + (70 - 45) * ((100vw - 320px) / (2440 - 320))), 70px); */
-  font-size: clamp(35px, calc(35px + (50 - 35) * ((100vw - 320px) / (2440 - 320))), 50px);
+  font-size: clamp(
+    35px,
+    calc(35px + (50 - 35) * ((100vw - 320px) / (2440 - 320))),
+    50px
+  );
 }
 
 .accordion_header::after {

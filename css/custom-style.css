@@ -1,0 +1,539 @@
+/* Main page */
+.row {
+  --bs-gutter-x: 18px;
+  --bs-gutter-y: 18px;
+}
+
+.research-section {
+  padding: 20px 0;
+}
+
+.research-featured {
+  position: relative;
+  aspect-ratio: 790 / 490;
+  /* height: 490px; */
+  overflow: hidden;
+  border: var(--article-card-border);
+  border-radius: 10px;
+  background: #080f18;
+}
+
+.research-featured__img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.research-featured__overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.1) 70%
+  );
+}
+
+.research-featured__content {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  padding: 16px;
+}
+
+.research-featured__category {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.research-featured__title {
+  max-width: 450px;
+  margin: auto 0 27px;
+
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.research-featured__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.research-featured__meta time {
+  color: var(--color);
+  font-size: 13px;
+}
+/* Right cards */
+
+.research-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  /* height: 100%; */
+  height: 442px;
+}
+
+.research-card {
+  min-height: 0;
+  height: calc((100% - 28px) / 3);
+
+  overflow: hidden;
+
+  border-radius: 10px;
+  background-color: #080f18;
+}
+
+.research-card__link {
+  display: flex;
+  height: 100%;
+}
+
+.light_theme .research-card {
+  background-color: #f6f9fc;
+}
+
+.research-card__content {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  min-width: 0;
+
+  padding: 14px 10px;
+}
+
+.research-card__title {
+  margin: 0;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.research-card__date {
+  margin-top: auto;
+}
+
+.research-card__img {
+  flex: 0 0 30%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.research-card__img img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+@media (max-width: 1280px) {
+  .research-list {
+    height: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .research-row {
+    row-gap: 18px;
+  }
+
+  .research-featured {
+    /* height: 400px; */
+    width: 100%;
+  }
+
+  .research-list {
+    height: auto;
+  }
+
+  .research-card {
+    height: 110px;
+  }
+}
+
+@media (max-width: 575px) {
+  .research-section {
+    padding: 15px 0;
+  }
+
+  .research-featured {
+    height: 360px;
+  }
+
+  .research-featured__title {
+    font-size: 21px;
+  }
+
+  .research-card {
+    height: 100px;
+  }
+
+  .research-card__title {
+    font-size: 11px;
+  }
+
+  .research-card__img {
+    flex-basis: 32%;
+  }
+}
+
+/* Last news section */
+.section-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.section-title {
+  margin-bottom: 0.5rem;
+}
+
+.more-btn {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.last-new__link {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 10px;
+  background-color: var(--article-card-bg);
+  border: var(--article-card-border);
+  height: 100%;
+}
+
+.last-new__link img {
+  aspect-ratio: 198 / 116;
+  border-radius: 10px;
+  width: 100%;
+  /* height: 100%; */
+}
+
+.last-new__content {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+
+  padding: 18px 14px;
+}
+
+.last-new__title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 42px;
+}
+
+.last-new__meta {
+  margin-top: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .more-btn:hover {
+    transform: scale(1.03);
+  }
+}
+/* Last news section end */
+
+/* Regulatory section */
+.regulatory-card {
+  height: 100%;
+  min-height: 195px;
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--article-card-bg);
+  border: var(--article-card-border);
+  border-radius: 10px;
+}
+
+.regulatory-card__category {
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+
+.advertisement {
+  color: #9a6a32;
+}
+
+.regulation {
+  color: #9a4f3d;
+}
+
+.payment_systems {
+  color: #287878;
+}
+
+.land_based_gambling {
+  color: #9a4f3d;
+}
+
+.regulatory-card__title {
+  min-height: 80px;
+}
+
+.regulatory-card__meta {
+  display: inline-flex;
+  column-gap: 15px;
+  row-gap: 7px;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.regulatory-card__icon {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.regulatory-card__meta time {
+  color: var(--color-light);
+}
+
+.regulatory-card__tag {
+  padding: 6px 30px;
+
+  border-width: 1px;
+  border-style: solid;
+
+  border-radius: 10px;
+}
+
+.regulatory-card__tag.current {
+  border-color: #287878;
+  color: #287878;
+}
+
+.regulatory-card__tag.project {
+  border-color: #9a6a32;
+  color: #9a6a32;
+}
+
+.regulatory-card__text {
+  margin: 0 0 20px;
+  color: var(--color-light);
+}
+
+.regulatory-card__important strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.news_card__important p {
+  margin: 0;
+}
+
+.regulatory-card__links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.regulatory-card__source {
+  text-decoration: underline;
+  color: var(--color-light);
+}
+
+.regulatory-card__links .more-btn {
+  font-size: 13px;
+}
+
+@media (max-width: 576px) {
+  .regulatory-card__title {
+    min-height: 70px;
+  }
+}
+/* Regulatory section end */
+
+/* Info banner */
+.info-banner {
+  /* position: relative; */
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #616b7d;
+}
+
+.info-banner__pc {
+  display: block;
+}
+
+.info-banner__mob {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .info-banner__pc {
+    display: none;
+  }
+
+  .info-banner__mob {
+    display: block;
+  }
+}
+/* Info banner end */
+
+/* Opinions section */
+.opinions__item {
+  flex: 0 0 auto;
+}
+
+.opinions__img {
+  border-radius: 10px;
+  border: 1px solid #2d3949;
+  aspect-ratio: 470 / 245;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.opinions__img img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.opinions__content_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 15px;
+  row-gap: 3px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.opinions__label {
+  border-radius: 10px;
+  font-size: 11px;
+  min-width: 123px;
+  text-align: center;
+}
+
+.opinions__label.aml {
+  background-color: #334155;
+}
+
+.opinions__label.taxes {
+  background-color: #9a6a32;
+}
+
+.opinions__label.gambling {
+  background-color: #65558f;
+}
+
+.opinions__label.technologies {
+  background-color: #42677c;
+}
+
+.opinions-grid__item--40 {
+  width: 40%;
+}
+
+.opinions-grid__item--20 {
+  width: 20%;
+}
+
+.opinion__bottom {
+  color: var(--color-light);
+}
+
+.opinions__author-meta {
+  color: #616b7d;
+  margin-left: 20px;
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .opinions-grid__item--40,
+  .opinions-grid__item--20 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+/* Opinions section end  */
+
+/* Partners section */
+.companies {
+  border-right: 1px solid #e3e8f0;
+  padding-right: 30px;
+  /* margin-right: 30px; */
+}
+
+.companies_item__img {
+  border: 1px solid #e3e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  aspect-ratio: 116 / 59;
+}
+
+.companies_item__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.partners_meta {
+  display: block;
+  margin-top: 5px;
+  color: #616b7d;
+  font-size: 11px;
+}
+
+.experts_item__img {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  margin: auto auto 10px;
+}
+
+.experts {
+  padding-left: 30px;
+}
+
+.experts_item__img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.experts_item{
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .companies {
+    border-right: 0;
+    padding-right: 0;
+    /* margin-right: 0; */
+    border-bottom: 1px solid #e3e8f0;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+  }
+
+  .experts {
+    padding-left: 0;
+    padding-top: 30px;
+  }
+}
+/* Partners section end */

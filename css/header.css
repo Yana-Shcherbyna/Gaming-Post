@@ -33,6 +33,7 @@
   display: flex;
   position: relative;
   z-index: 40;
+  margin-bottom: 0;
 }
 
 .header_list li {
@@ -55,6 +56,11 @@
 
 .header_logo img {
   display: block;
+}
+
+.header_settings_theme{
+  position: relative;
+  z-index: 70;
 }
 
 /* приховуємо бургер для мобільного меню */

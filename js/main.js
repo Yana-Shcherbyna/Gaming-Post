@@ -4,6 +4,50 @@
 
     // document.addEventListener('DOMContentLoaded', function () {  //Додати під час інтеграції
     // ***********************************************************
+    // !!!!!після інтеграції потрібно змінити на 'DOMContentLoaded'!!!!!!!!!!
+    document.addEventListener('includesLoaded', () => {
+      // Toggle theme color
+      const bodyElement = document.body;
+      const themeToggleBtn = document.querySelector('.header_settings_theme');
+    
+      if (!themeToggleBtn) {
+        console.warn('Theme toggle button not found');
+        return;
+      }
+    
+      const storageKey = 'siteTheme';
+      const defaultTheme = 'light_theme';
+    
+      // Функція застосування теми
+      function applyTheme(theme) {
+        bodyElement.classList.remove('light_theme', 'dark_theme');
+        bodyElement.classList.add(theme);
+      }
+    
+      // Перемикання теми
+      function toggleTheme() {
+        const currentTheme = bodyElement.classList.contains('dark_theme')
+          ? 'dark_theme'
+          : 'light_theme';
+    
+        const newTheme = currentTheme === 'dark_theme'
+          ? 'light_theme'
+          : 'dark_theme';
+    
+        applyTheme(newTheme);
+    
+        localStorage.setItem(storageKey, newTheme);
+      }
+    
+      // Застосовуємо збережену тему
+      const savedTheme = localStorage.getItem(storageKey);
+    
+      applyTheme(savedTheme || defaultTheme);
+    
+      // При кліку на кнопку
+      themeToggleBtn.addEventListener('click', toggleTheme);
+    });
+    // ***************************************
 
     // Preloader
     const preloader = document.querySelector('.page_preloader');
@@ -107,26 +151,26 @@
     sections.forEach(section => observer.observe(section));
 
     // Popup+overlay
-    const popupBtn = document.querySelector('.btn_popup');
-    const overlay = document.querySelector('.overlay');
-    const closeBtn = document.querySelector('.popup_close');
+    // const popupBtn = document.querySelector('.btn_popup');
+    // const overlay = document.querySelector('.overlay');
+    // const closeBtn = document.querySelector('.popup_close');
 
-    // Popup
-    if (popupBtn) {
-      popupBtn.addEventListener('click', () => {
-        overlay.classList.add('open');
-        lockScroll();
-      });
+    // // Popup
+    // if (popupBtn) {
+    //   popupBtn.addEventListener('click', () => {
+    //     overlay.classList.add('open');
+    //     lockScroll();
+    //   });
 
-      closeBtn.addEventListener('click', () => {
-        overlay.classList.remove('open');
-        unlockScroll();
-      });
+    //   closeBtn.addEventListener('click', () => {
+    //     overlay.classList.remove('open');
+    //     unlockScroll();
+    //   });
 
-      overlay.addEventListener('click', e => {
-        if (e.target === overlay) overlay.classList.remove('open');
-      });
-    }
+    //   overlay.addEventListener('click', e => {
+    //     if (e.target === overlay) overlay.classList.remove('open');
+    //   });
+    // }
 
     // Delegation
     document.body.addEventListener('click', onBodyClick);
