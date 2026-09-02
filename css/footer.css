@@ -1,179 +1,3 @@
-.professional_digest_section,
-.footer {
-  color: var(--color);
-}
-
-.professional_digest_section {
-  margin-bottom: 74px;
-}
-
-.professional_digest_section .container,
-.footer .container {
-  max-width: 1374px;
-}
-
-.professional_digest {
-  display: grid;
-  grid-template-columns: 66% 34%;
-  min-height: 151px;
-  overflow: hidden;
-
-  background-color: var(--article-card-bg);
-  border: var(--article-card-border);
-  border-radius: 10px;
-}
-
-.professional_digest_newsletter {
-  display: grid;
-  grid-template-columns: 44px 294px 275px 132px;
-  column-gap: 0;
-  align-items: center;
-  padding: 17px 30px 17px 34px;
-
-  border-right: var(--article-card-border);
-}
-
-.professional_digest_icon {
-  width: 44px;
-  color: var(--color-light);
-}
-
-.professional_digest_icon svg {
-  display: block;
-  width: 44px;
-  height: auto;
-}
-
-.professional_digest_icon rect {
-  fill: currentColor;
-  stroke: currentColor;
-}
-
-.professional_digest_icon path {
-  fill: none;
-  stroke: var(--dark);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.5;
-}
-
-.professional_digest_content {
-  align-self: center;
-  margin-left: 42px;
-}
-
-.professional_digest_title {
-  margin: 0 0 3px;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.professional_digest_text {
-  margin: 0;
-  color: var(--color-light);
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-.professional_digest_form {
-  display: grid;
-  grid-template-columns: minmax(0, 275px) 132px;
-  gap: 16px;
-  grid-column: 3 / 5;
-  align-items: center;
-  margin-left: 20px;
-}
-
-.professional_digest_input,
-.professional_digest_button,
-.professional_digest_telegram_link {
-  border-radius: 6px;
-  font-family: var(--font-family);
-  font-size: 14px;
-}
-
-.professional_digest_input {
-  width: 100%;
-  height: 54px;
-  padding: 0 20px;
-
-  color: var(--color);
-  background-color: color-mix(
-    in srgb,
-    var(--color-light) 52%,
-    var(--dark)
-  );
-  border: 0;
-  outline: 0;
-}
-
-.professional_digest_input::placeholder {
-  color: var(--color);
-  opacity: 1;
-}
-
-.professional_digest_input:focus-visible {
-  outline: 2px solid var(--light);
-  outline-offset: 2px;
-}
-
-.professional_digest_button {
-  height: 54px;
-  padding: 0 16px;
-
-  color: var(--color);
-  font-weight: 600;
-  background-color: var(--accent);
-  border: 1px solid var(--accent);
-}
-
-.professional_digest_telegram {
-  display: grid;
-  grid-template-columns: 50px minmax(0, 1fr);
-  gap: 27px;
-  align-items: center;
-  padding: 17px 24px;
-}
-
-.professional_digest_telegram_icon {
-  align-self: center;
-  color: var(--color-light);
-}
-
-.professional_digest_telegram_icon svg {
-  display: block;
-  width: 50px;
-  height: auto;
-}
-
-.professional_digest_telegram_icon path {
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.2;
-}
-
-.professional_digest_telegram_content {
-  min-width: 0;
-}
-
-.professional_digest_telegram_link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 228px;
-  min-height: 38px;
-  margin-top: 12px;
-  padding: 7px 18px;
-
-  color: var(--accent);
-  font-weight: 600;
-  border: 1px solid var(--accent);
-}
-
 .footer {
   min-height: 386px;
   background-color: var(--dark);
@@ -299,7 +123,7 @@
   display: flex;
   align-items: center;
   min-height: 70px;
-  border-top: var(--article-card-border);
+  border-top: 1px solid #E3E8F0;
 }
 
 .footer_bottom p {
@@ -309,26 +133,6 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .professional_digest_button,
-  .professional_digest_telegram_link,
-  .footer_list a,
-  .footer_address a,
-  .footer_social {
-    transition: color 0.2s ease, background-color 0.2s ease,
-      border-color 0.2s ease, transform 0.2s ease;
-  }
-
-  .professional_digest_button:hover {
-    color: var(--dark);
-    background-color: var(--color);
-    border-color: var(--color);
-  }
-
-  .professional_digest_telegram_link:hover {
-    color: var(--dark);
-    background-color: var(--accent);
-  }
-
   .footer_list a:hover,
   .footer_address a:hover {
     color: var(--accent);
@@ -339,76 +143,7 @@
   }
 }
 
-@media (max-width: 1399px) {
-  .professional_digest_newsletter {
-    grid-template-columns: 40px minmax(200px, 1fr) minmax(190px, 240px) 120px;
-    padding-right: 24px;
-    padding-left: 24px;
-  }
-
-  .professional_digest_icon,
-  .professional_digest_icon svg {
-    width: 40px;
-  }
-
-  .professional_digest_content {
-    margin-left: 20px;
-  }
-
-  .professional_digest_form {
-    grid-template-columns: minmax(0, 240px) 120px;
-    gap: 12px;
-    margin-left: 16px;
-  }
-
-  .professional_digest_telegram {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 1199px) {
-  .professional_digest {
-    grid-template-columns: 1fr;
-  }
-
-  .professional_digest_newsletter {
-    border-right: 0;
-    border-bottom: var(--article-card-border);
-  }
-
-  .professional_digest_telegram {
-    min-height: 126px;
-    padding-right: 34px;
-    padding-left: 34px;
-  }
-}
-
 @media (max-width: 991px) {
-  .professional_digest_section {
-    margin-bottom: 54px;
-  }
-
-  .professional_digest_newsletter {
-    grid-template-columns: 44px minmax(0, 1fr);
-    gap: 20px 24px;
-    padding: 24px;
-  }
-
-  .professional_digest_content {
-    margin-left: 0;
-  }
-
-  .professional_digest_form {
-    grid-template-columns: minmax(0, 1fr) 132px;
-    grid-column: 1 / -1;
-    gap: 14px;
-    margin-left: 0;
-  }
-
-  .professional_digest_telegram {
-    padding: 24px;
-  }
-
   .footer {
     min-height: 0;
   }
@@ -430,34 +165,6 @@
 }
 
 @media (max-width: 575px) {
-  .professional_digest_section {
-    margin-bottom: 40px;
-  }
-
-  .professional_digest_newsletter,
-  .professional_digest_telegram {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .professional_digest_icon,
-  .professional_digest_telegram_icon {
-    display: none;
-  }
-
-  .professional_digest_form {
-    grid-template-columns: 1fr;
-  }
-
-  .professional_digest_button,
-  .professional_digest_telegram_link {
-    width: 100%;
-  }
-
-  .professional_digest_title {
-    font-size: 21px;
-  }
-
   .footer_top {
     grid-template-columns: 1fr;
     gap: 30px;
