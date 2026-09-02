@@ -1,53 +1,121 @@
+function initHeaderControls() {
+  const header = document.querySelector('.header');
+
+  if (!header || header.dataset.controlsInitialized === 'true') return;
+
+  const themeToggleBtn = header.querySelector('.header_settings_theme');
+  const searchToggleBtn = header.querySelector('.header_search_toggle');
+  const searchForm = header.querySelector('.header_search_form');
+  const searchInput = header.querySelector('.header_search_input');
+
+  if (!themeToggleBtn) return;
+
+  header.dataset.controlsInitialized = 'true';
+
+  const bodyElement = document.body;
+  const storageKey = 'siteTheme';
+  const availableThemes = ['light_theme', 'dark_theme'];
+
+  function updateThemeButton(theme) {
+    const isLightTheme = theme === 'light_theme';
+    const label = isLightTheme
+      ? 'Увімкнути темну тему'
+      : 'Увімкнути світлу тему';
+
+    themeToggleBtn.setAttribute('aria-pressed', String(isLightTheme));
+    themeToggleBtn.setAttribute('aria-label', label);
+    themeToggleBtn.setAttribute('title', label);
+  }
+
+  function applyTheme(theme) {
+    const selectedTheme = availableThemes.includes(theme)
+      ? theme
+      : 'dark_theme';
+
+    bodyElement.classList.remove(...availableThemes);
+    bodyElement.classList.add(selectedTheme);
+    updateThemeButton(selectedTheme);
+  }
+
+  function getSavedTheme() {
+    try {
+      return localStorage.getItem(storageKey);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function saveTheme(theme) {
+    try {
+      localStorage.setItem(storageKey, theme);
+    } catch (error) {
+      // The theme still changes when browser storage is unavailable.
+    }
+  }
+
+  const initialTheme = getSavedTheme()
+    || availableThemes.find(theme => bodyElement.classList.contains(theme))
+    || 'dark_theme';
+
+  applyTheme(initialTheme);
+
+  themeToggleBtn.addEventListener('click', () => {
+    const newTheme = bodyElement.classList.contains('dark_theme')
+      ? 'light_theme'
+      : 'dark_theme';
+
+    applyTheme(newTheme);
+    saveTheme(newTheme);
+  });
+
+  if (!searchToggleBtn || !searchForm || !searchInput) return;
+
+  function closeHeaderSearch() {
+    searchForm.hidden = true;
+    header.classList.remove('header_search_open');
+    searchToggleBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  searchToggleBtn.addEventListener('click', () => {
+    const shouldOpen = searchForm.hidden;
+
+    searchForm.hidden = !shouldOpen;
+    header.classList.toggle('header_search_open', shouldOpen);
+    searchToggleBtn.setAttribute('aria-expanded', String(shouldOpen));
+
+    if (shouldOpen) searchInput.focus();
+  });
+
+  searchForm.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+
+    closeHeaderSearch();
+    searchToggleBtn.focus();
+  });
+
+  document.addEventListener('click', event => {
+    if (!searchForm.hidden && !header.contains(event.target)) {
+      closeHeaderSearch();
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initHeaderControls);
+} else {
+  initHeaderControls();
+}
+
+document.addEventListener('includesLoaded', initHeaderControls);
+
 // Замінити цей виклик функції на 'DOMContentLoaded' під час інтеграції
 ['DOMContentLoaded', 'includesLoaded'].forEach(evt => {
   document.addEventListener(evt, () => {  // прибрати під час інтеграції
 
     // document.addEventListener('DOMContentLoaded', function () {  //Додати під час інтеграції
     // ***********************************************************
-    // !!!!!після інтеграції потрібно змінити на 'DOMContentLoaded'!!!!!!!!!!
-    document.addEventListener('includesLoaded', () => {
-      // Toggle theme color
-      const bodyElement = document.body;
-      const themeToggleBtn = document.querySelector('.header_settings_theme');
-    
-      if (!themeToggleBtn) {
-        console.warn('Theme toggle button not found');
-        return;
-      }
-    
-      const storageKey = 'siteTheme';
-      const defaultTheme = 'light_theme';
-    
-      // Функція застосування теми
-      function applyTheme(theme) {
-        bodyElement.classList.remove('light_theme', 'dark_theme');
-        bodyElement.classList.add(theme);
-      }
-    
-      // Перемикання теми
-      function toggleTheme() {
-        const currentTheme = bodyElement.classList.contains('dark_theme')
-          ? 'dark_theme'
-          : 'light_theme';
-    
-        const newTheme = currentTheme === 'dark_theme'
-          ? 'light_theme'
-          : 'dark_theme';
-    
-        applyTheme(newTheme);
-    
-        localStorage.setItem(storageKey, newTheme);
-      }
-    
-      // Застосовуємо збережену тему
-      const savedTheme = localStorage.getItem(storageKey);
-    
-      applyTheme(savedTheme || defaultTheme);
-    
-      // При кліку на кнопку
-      themeToggleBtn.addEventListener('click', toggleTheme);
-    });
-    // ***************************************
+    // Header controls are initialized separately for static includes and WordPress.
+
 
     // Preloader
     const preloader = document.querySelector('.page_preloader');
