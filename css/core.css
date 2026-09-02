@@ -37,17 +37,11 @@
 }
 
 body.light_theme {
-  /* --black: #fff;
-    --sub-black: #fff;
-    --super-black: #fff;
-    --white: #484848;
-    --sub-white: #383838;
-    --white-secondary: #343434;
-    --grey: #343434;
-    --sub-grey: #7a7a7a; */
-  /* --bg-color: #484848;
-  --text-color: #fff;
-  --bg-sub-color: #fff; */
+  --dark: #ffffff;
+  --article-card-bg: #ffffff;
+  --article-card-border: 1px solid #e3e8f0;
+  --color: #0a1224;
+  --color-light: #616b7d;
 }
 /* Constant variables end */
 
