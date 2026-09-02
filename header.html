@@ -1,48 +1,100 @@
-<div class="header_overlay"></div>
-
 <div class="container">
-	<div class="header_body">
-		<a href="#" class="header_logo">
-			<img src="img/logo.png" alt="Logo" />
-		</a>
-		<h1>Site Header</h1>
-		<div class="menu_burger_wrapper">
-			<div class="menu_burger">
-				<span></span>
-			</div>
-		</div>
-		<nav class="header_menu">
-			<ul class="header_list">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">Contact</a></li>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</nav>
-		<!-- <nav class="header_menu">
-			<ul class="header_list">
-				<li><a href="#" class="menu-item-has-children">services</a>
-					<button class="submenu_arrow" aria-label="Open submenu">
-						<img src="img/arrow.svg" alt="Arrow">
-					</button>
-				<ul class="sub-menu">
-					<li><a href="#">Advertising</a></li>
-					<li><a href="#">creative production</a></li>
-					<li><a href="#">marketing</a></li>
-				</ul></li>
-				<li><a href="#">WORK</a></li>
-				<li><a href="#">ABOUT</a></li>
-				<li><a href="#">TEAM</a></li>
-				<li><a href="#">IDEAS</a></li>
-				<li><a href="#">contacts</a></li>
-			</ul>
-		</nav> -->
-		<div class="header_settings_theme">
-			<span>LIGHT</span>
-		</div>
-	</div>
+  <div class="header_body">
+    <form
+      class="header_search_form"
+      id="headerSearchForm"
+      action="#"
+      method="get"
+      role="search"
+      hidden
+    >
+      <label class="visually-hidden" for="headerSearchInput">Пошук</label>
+      <input
+        class="header_search_input"
+        id="headerSearchInput"
+        type="search"
+        name="search"
+        placeholder="Знайти..."
+        autocomplete="off"
+      />
+      <button class="header_search_submit" type="submit" aria-label="Шукати">
+        <img src="img/header-search.png" alt="" />
+      </button>
+    </form>
+
+    <div class="header_controls">
+      <button
+        class="header_control header_search_toggle"
+        type="button"
+        aria-label="Відкрити пошук"
+        aria-controls="headerSearchForm"
+        aria-expanded="false"
+      >
+        <img src="img/header-search.png" alt="" />
+      </button>
+
+      <span class="header_divider header_divider_search" aria-hidden="true"></span>
+
+      <button
+        class="header_control header_settings_theme"
+        type="button"
+        aria-label="Увімкнути світлу тему"
+        aria-pressed="false"
+      >
+        <img src="img/header-theme.png" alt="" />
+      </button>
+
+      <span class="header_divider header_divider_theme" aria-hidden="true"></span>
+
+      <a class="header_control header_account" href="#" aria-label="Кабінет">
+        <img src="img/header-account.png" alt="" />
+      </a>
+    </div>
+  </div>
+
+  <nav class="header_topics" aria-label="Тематичні розділи">
+    <ul class="header_topics_list">
+      <li>
+        <a class="header_topics_link header_topics_aml" href="#">AML</a>
+      </li>
+      <li>
+        <a class="header_topics_link header_topics_responsible" href="#">
+          Responsible Gaming
+        </a>
+      </li>
+      <li>
+        <a class="header_topics_link header_topics_licensing" href="#">
+          Ліцензування
+        </a>
+      </li>
+      <li>
+        <a class="header_topics_link header_topics_taxes" href="#">Податки</a>
+      </li>
+      <li>
+        <a class="header_topics_link header_topics_online" href="#">
+          Онлайн-гемблінг
+        </a>
+      </li>
+      <li>
+        <a class="header_topics_link header_topics_land" href="#">
+          Наземний гемблінг
+        </a>
+      </li>
+      <li>
+        <a class="header_topics_link header_topics_payments" href="#">
+          Платіжні системи
+        </a>
+      </li>
+      <li>
+        <a class="header_topics_link header_topics_advertising" href="#">
+          Реклама
+        </a>
+      </li>
+      <li>
+        <a class="header_topics_link header_topics_technologies" href="#">
+          Технології
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
