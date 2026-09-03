@@ -1,4 +1,180 @@
 .footer {
-	background-color: #333;
-	color: #fff;
+  min-height: 386px;
+  background-color: var(--dark);
+}
+
+.footer_top {
+  display: grid;
+  grid-template-columns: 27.7% 23% 26.1% 23.2%;
+  min-height: 316px;
+  padding-top: 40px;
+}
+
+.footer_brand {
+  max-width: 245px;
+}
+
+.footer_logo {
+  display: inline-flex;
+  align-items: baseline;
+  margin-bottom: 0;
+
+  color: var(--color);
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.footer_logo span:last-child {
+  color: var(--accent);
+}
+
+.footer_tagline {
+  margin: -1px 0 20px 16px;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.footer_description {
+  margin: 0;
+  color: var(--color-light);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.footer_title {
+  margin: 5px 0 14px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.footer_list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer_list a,
+.footer_address {
+  color: var(--color-light);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.footer_list a {
+  display: inline-block;
+}
+
+.footer_address {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-style: normal;
+}
+
+.footer_address a,
+.footer_address span {
+  color: inherit;
+}
+
+.footer_socials {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 36px;
+}
+
+.footer_social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 31px;
+  height: 31px;
+
+  color: var(--dark);
+  background-color: var(--color);
+  border-radius: 50%;
+}
+
+.footer_social svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footer_social path {
+  fill: currentColor;
+  stroke: none;
+}
+
+.footer_social rect,
+.footer_social circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.footer_bottom {
+  display: flex;
+  align-items: center;
+  min-height: 70px;
+  border-top: 1px solid #E3E8F0;
+}
+
+.footer_bottom p {
+  margin: 0;
+  color: var(--color-light);
+  font-size: 12px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer_list a:hover,
+  .footer_address a:hover {
+    color: var(--accent);
+  }
+
+  .footer_social:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 991px) {
+  .footer {
+    min-height: 0;
+  }
+
+  .footer_top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 48px;
+    min-height: 0;
+    padding: 40px 0;
+  }
+
+  .footer_brand {
+    max-width: 320px;
+  }
+
+  .footer_bottom {
+    min-height: 62px;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer_top {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer_brand {
+    max-width: 100%;
+  }
+
+  .footer_socials {
+    margin-top: 24px;
+  }
 }

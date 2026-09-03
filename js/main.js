@@ -1,53 +1,226 @@
+function initHeaderControls() {
+  const header = document.querySelector('.header');
+
+  if (!header || header.dataset.controlsInitialized === 'true') return;
+
+  const themeToggleBtn = header.querySelector('.header_settings_theme');
+  const searchToggleBtn = header.querySelector('.header_search_toggle');
+  const searchForm = header.querySelector('.header_search_form');
+  const searchInput = header.querySelector('.header_search_input');
+  const mainMenu = header.querySelector('.header_menu');
+  const mainMenuList = header.querySelector('.header_menu_list');
+  const headerMore = header.querySelector('.header_more');
+  const menuToggleBtn = header.querySelector('.menu_burger');
+  const overflowMenu = header.querySelector('.header_overflow');
+  const overflowMenuList = header.querySelector('.header_overflow_list');
+
+  if (!themeToggleBtn) return;
+
+  header.dataset.controlsInitialized = 'true';
+
+  const bodyElement = document.body;
+  const storageKey = 'siteTheme';
+  const availableThemes = ['light_theme', 'dark_theme'];
+  const primaryMenuItems = mainMenuList
+    ? Array.from(mainMenuList.children)
+    : [];
+
+  let menuLayoutFrame = null;
+
+  function setOverflowMenuOpen(shouldOpen) {
+    if (!menuToggleBtn || !overflowMenu || !overflowMenuList) return;
+
+    const hasOverflowItems = overflowMenuList.children.length > 0;
+    const isOpen = shouldOpen && hasOverflowItems;
+
+    menuToggleBtn.classList.toggle('active', isOpen);
+    overflowMenu.classList.toggle('active', isOpen);
+    menuToggleBtn.setAttribute('aria-expanded', String(isOpen));
+    menuToggleBtn.setAttribute(
+      'aria-label',
+      isOpen ? 'Закрити додаткове меню' : 'Відкрити додаткове меню'
+    );
+    overflowMenu.setAttribute('aria-hidden', String(!isOpen));
+  }
+
+  function updatePriorityMenu() {
+    if (
+      !mainMenu
+      || !mainMenuList
+      || !headerMore
+      || !overflowMenuList
+    ) {
+      return;
+    }
+
+    setOverflowMenuOpen(false);
+    mainMenuList.replaceChildren(...primaryMenuItems);
+    overflowMenuList.replaceChildren();
+    headerMore.hidden = true;
+
+    if (window.innerWidth <= 767) {
+      overflowMenuList.append(...primaryMenuItems);
+    } else {
+      while (
+        mainMenuList.lastElementChild
+        && mainMenuList.scrollWidth > mainMenu.clientWidth
+      ) {
+        headerMore.hidden = false;
+        overflowMenuList.prepend(mainMenuList.lastElementChild);
+      }
+    }
+
+    headerMore.hidden = overflowMenuList.children.length === 0;
+  }
+
+  function schedulePriorityMenu() {
+    if (menuLayoutFrame) cancelAnimationFrame(menuLayoutFrame);
+
+    menuLayoutFrame = requestAnimationFrame(() => {
+      updatePriorityMenu();
+      menuLayoutFrame = null;
+    });
+  }
+
+  if (menuToggleBtn && overflowMenu && overflowMenuList && headerMore) {
+    menuToggleBtn.addEventListener('click', () => {
+      setOverflowMenuOpen(!overflowMenu.classList.contains('active'));
+    });
+
+    overflowMenu.addEventListener('click', event => {
+      if (event.target.closest('.header_menu_link')) {
+        setOverflowMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('click', event => {
+      if (
+        overflowMenu.classList.contains('active')
+        && !headerMore.contains(event.target)
+      ) {
+        setOverflowMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (
+        event.key === 'Escape'
+        && overflowMenu.classList.contains('active')
+      ) {
+        setOverflowMenuOpen(false);
+        menuToggleBtn.focus();
+      }
+    });
+
+    window.addEventListener('resize', schedulePriorityMenu);
+
+    if (document.fonts) {
+      document.fonts.ready.then(schedulePriorityMenu);
+    }
+
+    schedulePriorityMenu();
+  }
+
+  function updateThemeButton(theme) {
+    const isLightTheme = theme === 'light_theme';
+    const label = isLightTheme
+      ? 'Увімкнути темну тему'
+      : 'Увімкнути світлу тему';
+
+    themeToggleBtn.setAttribute('aria-pressed', String(isLightTheme));
+    themeToggleBtn.setAttribute('aria-label', label);
+    themeToggleBtn.setAttribute('title', label);
+  }
+
+  function applyTheme(theme) {
+    const selectedTheme = availableThemes.includes(theme)
+      ? theme
+      : 'dark_theme';
+
+    bodyElement.classList.remove(...availableThemes);
+    bodyElement.classList.add(selectedTheme);
+    updateThemeButton(selectedTheme);
+  }
+
+  function getSavedTheme() {
+    try {
+      return localStorage.getItem(storageKey);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function saveTheme(theme) {
+    try {
+      localStorage.setItem(storageKey, theme);
+    } catch (error) {
+      // The theme still changes when browser storage is unavailable.
+    }
+  }
+
+  const initialTheme = getSavedTheme()
+    || availableThemes.find(theme => bodyElement.classList.contains(theme))
+    || 'dark_theme';
+
+  applyTheme(initialTheme);
+
+  themeToggleBtn.addEventListener('click', () => {
+    const newTheme = bodyElement.classList.contains('dark_theme')
+      ? 'light_theme'
+      : 'dark_theme';
+
+    applyTheme(newTheme);
+    saveTheme(newTheme);
+  });
+
+  if (!searchToggleBtn || !searchForm || !searchInput) return;
+
+  function closeHeaderSearch() {
+    searchForm.hidden = true;
+    header.classList.remove('header_search_open');
+    searchToggleBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  searchToggleBtn.addEventListener('click', () => {
+    const shouldOpen = searchForm.hidden;
+
+    searchForm.hidden = !shouldOpen;
+    header.classList.toggle('header_search_open', shouldOpen);
+    searchToggleBtn.setAttribute('aria-expanded', String(shouldOpen));
+
+    if (shouldOpen) searchInput.focus();
+  });
+
+  searchForm.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+
+    closeHeaderSearch();
+    searchToggleBtn.focus();
+  });
+
+  document.addEventListener('click', event => {
+    if (!searchForm.hidden && !header.contains(event.target)) {
+      closeHeaderSearch();
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initHeaderControls);
+} else {
+  initHeaderControls();
+}
+
+document.addEventListener('includesLoaded', initHeaderControls);
+
 // Замінити цей виклик функції на 'DOMContentLoaded' під час інтеграції
 ['DOMContentLoaded', 'includesLoaded'].forEach(evt => {
   document.addEventListener(evt, () => {  // прибрати під час інтеграції
 
     // document.addEventListener('DOMContentLoaded', function () {  //Додати під час інтеграції
     // ***********************************************************
-    // !!!!!після інтеграції потрібно змінити на 'DOMContentLoaded'!!!!!!!!!!
-    document.addEventListener('includesLoaded', () => {
-      // Toggle theme color
-      const bodyElement = document.body;
-      const themeToggleBtn = document.querySelector('.header_settings_theme');
-    
-      if (!themeToggleBtn) {
-        console.warn('Theme toggle button not found');
-        return;
-      }
-    
-      const storageKey = 'siteTheme';
-      const defaultTheme = 'light_theme';
-    
-      // Функція застосування теми
-      function applyTheme(theme) {
-        bodyElement.classList.remove('light_theme', 'dark_theme');
-        bodyElement.classList.add(theme);
-      }
-    
-      // Перемикання теми
-      function toggleTheme() {
-        const currentTheme = bodyElement.classList.contains('dark_theme')
-          ? 'dark_theme'
-          : 'light_theme';
-    
-        const newTheme = currentTheme === 'dark_theme'
-          ? 'light_theme'
-          : 'dark_theme';
-    
-        applyTheme(newTheme);
-    
-        localStorage.setItem(storageKey, newTheme);
-      }
-    
-      // Застосовуємо збережену тему
-      const savedTheme = localStorage.getItem(storageKey);
-    
-      applyTheme(savedTheme || defaultTheme);
-    
-      // При кліку на кнопку
-      themeToggleBtn.addEventListener('click', toggleTheme);
-    });
-    // ***************************************
+    // Header controls are initialized separately for static includes and WordPress.
+
 
     // Preloader
     const preloader = document.querySelector('.page_preloader');
@@ -64,19 +237,6 @@
         preloader.classList.add('is_hidden');
       }
     });
-
-    // Burger menu
-    const burger = document.querySelector('.menu_burger');
-    const headerMenu = document.querySelector('.header_menu');
-
-    if (burger) {
-      burger.addEventListener('click', function () {
-        burger.classList.toggle('active');
-        headerMenu.classList.toggle('active');
-        document.body.classList.toggle('lock');
-        document.documentElement.classList.toggle('lock');
-      });
-    }
 
     // Anchor to top
     const backToTopBtn = document.getElementById('js-backToTop');
