@@ -1,5 +1,36 @@
 <div class="container">
   <div class="header_body">
+    <a class="header_logo" href="index.html" aria-label="GamingPost — на головну">
+      <span class="header_logo_title">
+        <span>GAMING</span><span class="header_logo_accent">POST</span>
+      </span>
+      <span class="header_logo_tagline">Все про гральний бізнес</span>
+    </a>
+
+    <button
+      class="menu_burger"
+      type="button"
+      aria-label="Відкрити меню"
+      aria-controls="headerMainMenu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="header_menu" id="headerMainMenu" aria-label="Основна навігація">
+      <ul class="header_menu_list">
+        <li><a class="header_menu_link" href="#">Новини</a></li>
+        <li><a class="header_menu_link" href="#">Регулювання</a></li>
+        <li><a class="header_menu_link" href="#">Думки</a></li>
+        <li><a class="header_menu_link" href="#">Хто є хто</a></li>
+        <li><a class="header_menu_link" href="#">Теми</a></li>
+        <li><a class="header_menu_link" href="#">Про нас</a></li>
+        <li><a class="header_menu_link" href="#">Контакти</a></li>
+      </ul>
+    </nav>
+
     <form
       class="header_search_form"
       id="headerSearchForm"
@@ -18,37 +49,70 @@
         autocomplete="off"
       />
       <button class="header_search_submit" type="submit" aria-label="Шукати">
-        <img src="img/header-search.png" alt="" />
+        <span
+          class="header_control_icon header_search_icon"
+          aria-hidden="true"
+        ></span>
       </button>
     </form>
 
-    <div class="header_controls">
-      <button
-        class="header_control header_search_toggle"
-        type="button"
-        aria-label="Відкрити пошук"
-        aria-controls="headerSearchForm"
-        aria-expanded="false"
-      >
-        <img src="img/header-search.png" alt="" />
-      </button>
+    <div class="header_utilities">
+      <div class="header_controls">
+        <button
+          class="header_control header_search_toggle"
+          type="button"
+          aria-label="Відкрити пошук"
+          aria-controls="headerSearchForm"
+          aria-expanded="false"
+        >
+          <span
+            class="header_control_icon header_search_icon"
+            aria-hidden="true"
+          ></span>
+        </button>
 
-      <span class="header_divider header_divider_search" aria-hidden="true"></span>
+        <span
+          class="header_divider header_divider_search"
+          aria-hidden="true"
+        ></span>
 
-      <button
-        class="header_control header_settings_theme"
-        type="button"
-        aria-label="Увімкнути світлу тему"
-        aria-pressed="false"
-      >
-        <img src="img/header-theme.png" alt="" />
-      </button>
+        <button
+          class="header_control header_settings_theme"
+          type="button"
+          aria-label="Увімкнути світлу тему"
+          aria-pressed="false"
+        >
+          <span
+            class="header_control_icon header_theme_icon"
+            aria-hidden="true"
+          ></span>
+        </button>
 
-      <span class="header_divider header_divider_theme" aria-hidden="true"></span>
+        <span
+          class="header_divider header_divider_theme"
+          aria-hidden="true"
+        ></span>
 
-      <a class="header_control header_account" href="#" aria-label="Кабінет">
-        <img src="img/header-account.png" alt="" />
-      </a>
+        <a class="header_control header_account" href="#" aria-label="Кабінет">
+          <span
+            class="header_control_icon header_account_icon"
+            aria-hidden="true"
+          ></span>
+        </a>
+      </div>
+
+      <div class="header_languages" aria-label="Вибір мови">
+        <a
+          class="header_language header_language_active"
+          href="#"
+          lang="uk"
+          aria-current="true"
+        >
+          UA
+        </a>
+        <span aria-hidden="true">|</span>
+        <a class="header_language" href="#" lang="en">EN</a>
+      </div>
     </div>
   </div>
 
