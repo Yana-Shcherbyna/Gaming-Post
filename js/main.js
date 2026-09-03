@@ -7,55 +7,119 @@ function initHeaderControls() {
   const searchToggleBtn = header.querySelector('.header_search_toggle');
   const searchForm = header.querySelector('.header_search_form');
   const searchInput = header.querySelector('.header_search_input');
+  const mainMenu = header.querySelector('.header_menu');
+  const mainMenuList = header.querySelector('.header_menu_list');
+  const headerMore = header.querySelector('.header_more');
+  const menuToggleBtn = header.querySelector('.menu_burger');
+  const overflowMenu = header.querySelector('.header_overflow');
+  const overflowMenuList = header.querySelector('.header_overflow_list');
 
   if (!themeToggleBtn) return;
 
   header.dataset.controlsInitialized = 'true';
 
   const bodyElement = document.body;
-  const menuToggleBtn = header.querySelector('.menu_burger');
-  const mainMenu = header.querySelector('.header_menu');
+  const storageKey = 'siteTheme';
+  const availableThemes = ['light_theme', 'dark_theme'];
+  const primaryMenuItems = mainMenuList
+    ? Array.from(mainMenuList.children)
+    : [];
 
-  function setHeaderMenuOpen(shouldOpen) {
-    if (!menuToggleBtn || !mainMenu) return;
+  let menuLayoutFrame = null;
 
-    menuToggleBtn.classList.toggle('active', shouldOpen);
-    mainMenu.classList.toggle('active', shouldOpen);
-    menuToggleBtn.setAttribute('aria-expanded', String(shouldOpen));
+  function setOverflowMenuOpen(shouldOpen) {
+    if (!menuToggleBtn || !overflowMenu || !overflowMenuList) return;
+
+    const hasOverflowItems = overflowMenuList.children.length > 0;
+    const isOpen = shouldOpen && hasOverflowItems;
+
+    menuToggleBtn.classList.toggle('active', isOpen);
+    overflowMenu.classList.toggle('active', isOpen);
+    menuToggleBtn.setAttribute('aria-expanded', String(isOpen));
     menuToggleBtn.setAttribute(
       'aria-label',
-      shouldOpen ? 'Закрити меню' : 'Відкрити меню'
+      isOpen ? 'Закрити додаткове меню' : 'Відкрити додаткове меню'
     );
-    bodyElement.classList.toggle('lock', shouldOpen);
-    document.documentElement.classList.toggle('lock', shouldOpen);
+    overflowMenu.setAttribute('aria-hidden', String(!isOpen));
   }
 
-  if (menuToggleBtn && mainMenu) {
+  function updatePriorityMenu() {
+    if (
+      !mainMenu
+      || !mainMenuList
+      || !headerMore
+      || !overflowMenuList
+    ) {
+      return;
+    }
+
+    setOverflowMenuOpen(false);
+    mainMenuList.replaceChildren(...primaryMenuItems);
+    overflowMenuList.replaceChildren();
+    headerMore.hidden = true;
+
+    if (window.innerWidth <= 767) {
+      overflowMenuList.append(...primaryMenuItems);
+    } else {
+      while (
+        mainMenuList.lastElementChild
+        && mainMenuList.scrollWidth > mainMenu.clientWidth
+      ) {
+        headerMore.hidden = false;
+        overflowMenuList.prepend(mainMenuList.lastElementChild);
+      }
+    }
+
+    headerMore.hidden = overflowMenuList.children.length === 0;
+  }
+
+  function schedulePriorityMenu() {
+    if (menuLayoutFrame) cancelAnimationFrame(menuLayoutFrame);
+
+    menuLayoutFrame = requestAnimationFrame(() => {
+      updatePriorityMenu();
+      menuLayoutFrame = null;
+    });
+  }
+
+  if (menuToggleBtn && overflowMenu && overflowMenuList && headerMore) {
     menuToggleBtn.addEventListener('click', () => {
-      setHeaderMenuOpen(!mainMenu.classList.contains('active'));
+      setOverflowMenuOpen(!overflowMenu.classList.contains('active'));
     });
 
-    mainMenu.addEventListener('click', event => {
+    overflowMenu.addEventListener('click', event => {
       if (event.target.closest('.header_menu_link')) {
-        setHeaderMenuOpen(false);
+        setOverflowMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('click', event => {
+      if (
+        overflowMenu.classList.contains('active')
+        && !headerMore.contains(event.target)
+      ) {
+        setOverflowMenuOpen(false);
       }
     });
 
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && mainMenu.classList.contains('active')) {
-        setHeaderMenuOpen(false);
+      if (
+        event.key === 'Escape'
+        && overflowMenu.classList.contains('active')
+      ) {
+        setOverflowMenuOpen(false);
         menuToggleBtn.focus();
       }
     });
 
-    const desktopMenuQuery = window.matchMedia('(min-width: 992px)');
-    desktopMenuQuery.addEventListener('change', event => {
-      if (event.matches) setHeaderMenuOpen(false);
-    });
-  }
+    window.addEventListener('resize', schedulePriorityMenu);
 
-  const storageKey = 'siteTheme';
-  const availableThemes = ['light_theme', 'dark_theme'];
+    if (document.fonts) {
+      document.fonts.ready.then(schedulePriorityMenu);
+    }
+
+    schedulePriorityMenu();
+  }
 
   function updateThemeButton(theme) {
     const isLightTheme = theme === 'light_theme';
