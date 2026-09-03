@@ -12,6 +12,47 @@ function initHeaderControls() {
 
   header.dataset.controlsInitialized = 'true';
 
+  const menuToggleBtn = header.querySelector('.menu_burger');
+  const mainMenu = header.querySelector('.header_menu');
+
+  function setHeaderMenuOpen(shouldOpen) {
+    if (!menuToggleBtn || !mainMenu) return;
+
+    menuToggleBtn.classList.toggle('active', shouldOpen);
+    mainMenu.classList.toggle('active', shouldOpen);
+    menuToggleBtn.setAttribute('aria-expanded', String(shouldOpen));
+    menuToggleBtn.setAttribute(
+      'aria-label',
+      shouldOpen ? 'Закрити меню' : 'Відкрити меню'
+    );
+    bodyElement.classList.toggle('lock', shouldOpen);
+    document.documentElement.classList.toggle('lock', shouldOpen);
+  }
+
+  if (menuToggleBtn && mainMenu) {
+    menuToggleBtn.addEventListener('click', () => {
+      setHeaderMenuOpen(!mainMenu.classList.contains('active'));
+    });
+
+    mainMenu.addEventListener('click', event => {
+      if (event.target.closest('.header_menu_link')) {
+        setHeaderMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && mainMenu.classList.contains('active')) {
+        setHeaderMenuOpen(false);
+        menuToggleBtn.focus();
+      }
+    });
+
+    const desktopMenuQuery = window.matchMedia('(min-width: 1100px)');
+    desktopMenuQuery.addEventListener('change', event => {
+      if (event.matches) setHeaderMenuOpen(false);
+    });
+  }
+
   const bodyElement = document.body;
   const storageKey = 'siteTheme';
   const availableThemes = ['light_theme', 'dark_theme'];
@@ -132,19 +173,6 @@ document.addEventListener('includesLoaded', initHeaderControls);
         preloader.classList.add('is_hidden');
       }
     });
-
-    // Burger menu
-    const burger = document.querySelector('.menu_burger');
-    const headerMenu = document.querySelector('.header_menu');
-
-    if (burger) {
-      burger.addEventListener('click', function () {
-        burger.classList.toggle('active');
-        headerMenu.classList.toggle('active');
-        document.body.classList.toggle('lock');
-        document.documentElement.classList.toggle('lock');
-      });
-    }
 
     // Anchor to top
     const backToTopBtn = document.getElementById('js-backToTop');
