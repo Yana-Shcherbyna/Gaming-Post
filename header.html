@@ -7,18 +7,6 @@
       <!-- <span class="header_logo_tagline">Все про гральний бізнес</span> -->
     </a>
 
-    <button
-      class="menu_burger"
-      type="button"
-      aria-label="Відкрити меню"
-      aria-controls="headerMainMenu"
-      aria-expanded="false"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <nav class="header_menu" id="headerMainMenu" aria-label="Основна навігація">
       <ul class="header_menu_list">
         <li><a class="header_menu_link" href="#">Новини</a></li>
@@ -30,6 +18,29 @@
         <li><a class="header_menu_link" href="#">Контакти</a></li>
       </ul>
     </nav>
+
+    <div class="header_more" hidden>
+      <button
+        class="menu_burger"
+        type="button"
+        aria-label="Відкрити додаткове меню"
+        aria-controls="headerOverflowMenu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav
+        class="header_overflow"
+        id="headerOverflowMenu"
+        aria-label="Додаткові розділи"
+        aria-hidden="true"
+      >
+        <ul class="header_overflow_list"></ul>
+      </nav>
+    </div>
 
     <form
       class="header_search_form"
