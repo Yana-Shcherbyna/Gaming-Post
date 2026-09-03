@@ -48,7 +48,7 @@ function initHeaderControls() {
       }
     });
 
-    const desktopMenuQuery = window.matchMedia('(min-width: 1100px)');
+    const desktopMenuQuery = window.matchMedia('(min-width: 992px)');
     desktopMenuQuery.addEventListener('change', event => {
       if (event.matches) setHeaderMenuOpen(false);
     });
