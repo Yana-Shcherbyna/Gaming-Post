@@ -57,44 +57,35 @@
     </form>
 
     <div class="header_utilities">
-      <div class="header_controls">
-        <button
-          class="header_control header_search_toggle"
-          type="button"
-          aria-label="Відкрити пошук"
-          aria-controls="headerSearchForm"
-          aria-expanded="false"
-        >
-          <span
-            class="header_control_icon header_search_icon"
-            aria-hidden="true"
-          ></span>
-        </button>
-
+      <button
+        class="header_control header_search_toggle"
+        type="button"
+        aria-label="Відкрити пошук"
+        aria-controls="headerSearchForm"
+        aria-expanded="false"
+      >
         <span
-          class="header_divider header_divider_search"
+          class="header_control_icon header_search_icon"
           aria-hidden="true"
         ></span>
+      </button>
 
-        <button
-          class="header_control header_settings_theme"
-          type="button"
-          aria-label="Увімкнути світлу тему"
-          aria-pressed="false"
-        >
-          <span
-            class="header_control_icon header_theme_icon"
-            aria-hidden="true"
-          ></span>
-        </button>
+      <span
+        class="header_divider header_divider_search"
+        aria-hidden="true"
+      ></span>
 
+      <button
+        class="header_control header_settings_theme"
+        type="button"
+        aria-label="Увімкнути світлу тему"
+        aria-pressed="false"
+      >
         <span
-          class="header_divider header_divider_theme"
+          class="header_control_icon header_theme_icon"
           aria-hidden="true"
         ></span>
-
-       
-      </div>
+      </button>
 
       <div class="header_languages" aria-label="Вибір мови">
         <a
@@ -109,12 +100,17 @@
         <a class="header_language" href="#" lang="en">EN</a>
       </div>
 
-			<a class="header_control header_account" href="#" aria-label="Кабінет">
-				<span
-					class="header_control_icon header_account_icon"
-					aria-hidden="true"
-				></span>
-			</a>
+      <span
+        class="header_divider header_divider_theme"
+        aria-hidden="true"
+      ></span>
+
+      <a class="header_control header_account" href="#" aria-label="Кабінет">
+        <span
+          class="header_control_icon header_account_icon"
+          aria-hidden="true"
+        ></span>
+      </a>
     </div>
   </div>
 
