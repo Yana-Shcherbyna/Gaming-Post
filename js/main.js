@@ -12,6 +12,7 @@ function initHeaderControls() {
 
   header.dataset.controlsInitialized = 'true';
 
+  const bodyElement = document.body;
   const menuToggleBtn = header.querySelector('.menu_burger');
   const mainMenu = header.querySelector('.header_menu');
 
@@ -53,7 +54,6 @@ function initHeaderControls() {
     });
   }
 
-  const bodyElement = document.body;
   const storageKey = 'siteTheme';
   const availableThemes = ['light_theme', 'dark_theme'];
 
