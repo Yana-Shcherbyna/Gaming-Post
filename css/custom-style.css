@@ -48,6 +48,7 @@
 
   height: 100%;
   padding: 16px;
+  color: white;  
 }
 
 .research-featured__category {
@@ -61,6 +62,7 @@
 
   font-size: 34px;
   font-weight: 700;
+  color: white;
 }
 
 .research-featured__meta {
@@ -70,7 +72,7 @@
 }
 
 .research-featured__meta time {
-  color: var(--color);
+  color: white;
   font-size: 13px;
 }
 /* Right cards */
@@ -92,6 +94,7 @@
 
   border-radius: 10px;
   background-color: #080f18;
+  /* transition: none; */
 }
 
 .research-card__link {
@@ -137,6 +140,13 @@
   height: 100%;
 
   object-fit: cover;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .research-card:hover,
+  .research-featured:hover {
+    transform: scale(1.01);
+  }
 }
 
 @media (max-width: 1280px) {
@@ -247,6 +257,10 @@
   .more-btn:hover {
     transform: scale(1.03);
   }
+
+  .last-new:hover {
+    transform: scale(1.01);
+  }
 }
 /* Last news section end */
 
@@ -321,11 +335,13 @@
 .regulatory-card__tag.current {
   border-color: #287878;
   color: #287878;
+  background-color: #3F7D581F;
 }
 
 .regulatory-card__tag.project {
   border-color: #9a6a32;
   color: #9a6a32;
+  background-color: #9A6A3226;
 }
 
 .regulatory-card__text {
@@ -427,6 +443,7 @@
   font-size: 11px;
   min-width: 123px;
   text-align: center;
+  color: white;
 }
 
 .opinions__label.aml {
@@ -454,13 +471,23 @@
 }
 
 .opinion__bottom {
-  color: var(--color-light);
+  color: #C7D1E5;
+}
+
+body.light_theme .opinion__bottom{
+  color: #0A1224;
 }
 
 .opinions__author-meta {
   color: #616b7d;
   margin-left: 20px;
   display: inline-block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .opinions__item:hover {
+    transform: scale(1.01);
+  }
 }
 
 @media (max-width: 767px) {
@@ -558,8 +585,13 @@
   overflow: hidden;
 
   background-color: var(--article-card-bg);
-  border: 1px solid #616B7D;
+  border: 1px solid #616b7d;
   border-radius: 10px;
+}
+
+body.light_theme .subscription{
+  background-color: #E3E8F073;
+  border-color: transparent;
 }
 
 .subscription_newsletter {
@@ -569,7 +601,7 @@
   padding: 0 30px;
   margin: 17px 0;
 
-  border-right: 1px solid #9EA1A8;
+  border-right: 1px solid #9ea1a8;
 }
 
 .subscription_content {
@@ -614,9 +646,18 @@
   background-color: #616b7d;
 }
 
+body.light_theme .subscription_input{
+  background-color: #FFFFFF;
+  color: #616B7D;
+}
+
 .subscription_input::placeholder {
   color: var(--color);
   opacity: 1;
+}
+
+body.light_theme .subscription_input::placeholder {
+  color: #616B7D;
 }
 
 .subscription_input:focus-visible {
@@ -628,7 +669,7 @@
   height: 54px;
   padding: 0 16px;
 
-  color: var(--color);
+  color: white;
   font-weight: 600;
   background-color: var(--accent);
   border: 1px solid var(--accent);
@@ -704,7 +745,7 @@
 
   .subscription_newsletter {
     border-right: 0;
-    border-bottom: 1px solid #9EA1A8;
+    border-bottom: 1px solid #9ea1a8;
     padding: 30px 0;
     margin: 0 30px;
     justify-content: space-between;
