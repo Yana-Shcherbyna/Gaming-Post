@@ -299,8 +299,10 @@
 }
 
 .header_topics_list {
-  display: grid;
-  grid-template-columns: repeat(9, 123px);
+  display: flex;
+  column-gap: 30px;
+  /* display: grid;
+  grid-template-columns: repeat(9, 123px); */
   justify-content: space-between;
   align-items: start;
   min-width: 1336px;
@@ -341,7 +343,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 123px;
+  min-width: 123px;
+  width: fit-content;
+  padding: 0 10px;
   height: 31px;
   white-space: nowrap;
   background-color: transparent;

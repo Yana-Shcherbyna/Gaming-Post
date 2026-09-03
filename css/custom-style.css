@@ -306,6 +306,7 @@
 
 .regulatory-card__meta time {
   color: var(--color-light);
+  white-space: nowrap;
 }
 
 .regulatory-card__tag {
@@ -345,6 +346,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: auto;
 }
 
 .regulatory-card__source {

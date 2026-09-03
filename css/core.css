@@ -343,16 +343,6 @@ table th {
     margin-bottom: 34px;
   }
 }
-/* .d-flex {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-}
-.d-none {
-  display: none !important;
-} */
 
 .btn {
   display: inline-block;
@@ -511,13 +501,13 @@ table th {
   right: 30px;
   width: 44px;
   height: 44px;
-  background: var(--black-light);
+  background: var(--dark);
   /* border: 2px solid var(--accent ); */
   fill: #fff;
   border-radius: 6px;
   border: 2px solid white;
   box-shadow: 0px 2px 10px 0px #b214511a;
-  padding-top: 6px;
+  /* padding-top: 6px; */
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
