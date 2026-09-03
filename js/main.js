@@ -16,7 +16,7 @@
       }
     
       const storageKey = 'siteTheme';
-      const defaultTheme = 'light_theme';
+      const defaultTheme = 'dark_theme';
     
       // Функція застосування теми
       function applyTheme(theme) {
