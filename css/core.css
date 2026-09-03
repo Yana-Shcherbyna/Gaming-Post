@@ -298,6 +298,8 @@ select {
   border: var(--border);
 }
 
+
+
 @media (hover: hover) and (pointer: fine) {
   select:hover {
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
@@ -503,9 +505,9 @@ table th {
   height: 44px;
   background: var(--dark);
   /* border: 2px solid var(--accent ); */
-  fill: #fff;
+  fill: var(--color);
   border-radius: 6px;
-  border: 2px solid white;
+  border: 2px solid var(--color);
   box-shadow: 0px 2px 10px 0px #b214511a;
   /* padding-top: 6px; */
   cursor: pointer;

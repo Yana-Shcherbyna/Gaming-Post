@@ -14,7 +14,7 @@
 }
 
 .header .container {
-  height: 100%;
+  /* height: 100%; */
 }
 
 .header_body {
@@ -343,7 +343,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 123px;
+  /* min-width: 123px; */
   width: fit-content;
   padding: 0 10px;
   height: 31px;
