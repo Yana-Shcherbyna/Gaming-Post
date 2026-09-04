@@ -145,7 +145,12 @@
 @media (hover: hover) and (pointer: fine) {
   .research-card:hover,
   .research-featured:hover {
-    transform: scale(1.01);
+    transform: translateY(-2px);
+  }
+
+  .research-card:hover img,
+  .research-featured:hover img {
+    transform: scale(1.02);
   }
 }
 
@@ -226,6 +231,7 @@
   background-color: var(--article-card-bg);
   border: var(--article-card-border);
   height: 100%;
+  overflow: hidden;
 }
 
 .last-new__link img {
@@ -259,7 +265,11 @@
   }
 
   .last-new:hover {
-    transform: scale(1.01);
+    transform: translateY(-2px);
+  }
+
+  .last-new:hover img{
+    transform: scale(1.02);
   }
 }
 /* Last news section end */
@@ -486,7 +496,11 @@ body.light_theme .opinion__bottom{
 
 @media (hover: hover) and (pointer: fine) {
   .opinions__item:hover {
-    transform: scale(1.01);
+    transform: translateY(-2px);
+  }
+
+  .opinions__item:hover img {
+    transform: scale(1.02);
   }
 }
 
