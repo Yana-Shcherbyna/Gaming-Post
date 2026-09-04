@@ -71,7 +71,7 @@
           >
             <div class="container">
               <header class="news_archive_header">
-                <h1>Новини</h1>
+                <h1 id="newsArchiveTitle">Новини</h1>
                 <p class="news_archive_description">
                   Актуальні новини української та світової геймінг індустрії:
                   законодавство, регулювання, ліцензування, технології, ринок,
@@ -195,6 +195,429 @@
                   </article>
                 </div>
               </div>
+            </div>
+          </section>
+
+          <!-- News catalog -->
+          <section class="news_catalog section" aria-label="Усі новини">
+            <div class="container">
+              <form class="news_catalog_filters" action="" method="get">
+                <div class="news_catalog_filter">
+                  <label for="newsTopic">Теми:</label>
+                  <span class="news_catalog_select_wrap">
+                    <select
+                      class="news_catalog_select"
+                      id="newsTopic"
+                      name="topic"
+                    >
+                      <option value="all">Всі теми</option>
+                      <option value="regulation">Регулювання</option>
+                      <option value="licensing">Ліцензування</option>
+                      <option value="technologies">Технології</option>
+                      <option value="market">Ринок</option>
+                    </select>
+                  </span>
+                </div>
+
+                <div class="news_catalog_filter">
+                  <label for="newsSort">Сортування:</label>
+                  <span class="news_catalog_select_wrap">
+                    <select
+                      class="news_catalog_select"
+                      id="newsSort"
+                      name="sort"
+                    >
+                      <option value="newest">Найновіші</option>
+                      <option value="oldest">Найстаріші</option>
+                      <option value="popular">Популярні</option>
+                    </select>
+                  </span>
+                </div>
+
+                <button class="visually-hidden" type="submit">
+                  Застосувати фільтри
+                </button>
+              </form>
+
+              <div
+                class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 news_catalog_grid"
+              >
+                <div class="col">
+                  <article class="last-new news_catalog_card">
+                    <a class="last-new__link" href="#">
+                      <img
+                        src="https://loremflickr.com/640/372/law,gavel?lock=21"
+                        alt="Суддівський молоток і терези правосуддя"
+                        width="640"
+                        height="372"
+                        loading="lazy"
+                      />
+                      <div class="last-new__content">
+                        <h3 class="last-new__title">
+                          Суд прийняв рішення щодо ліцензії Parimatch
+                        </h3>
+                        <p class="news_catalog_excerpt">
+                          Суд визнав, що регулятор тоді ще КРАІЛ діяв відповідно
+                          до чинного законодавства, зокрема в рамках закону про
+                          санкції...
+                        </p>
+                        <div class="last-new__meta">
+                          <time datetime="2026-06-08T19:05">
+                            08.06.2026 &#183; 19:05
+                          </time>
+                        </div>
+                      </div>
+                    </a>
+                    <button
+                      class="news_catalog_bookmark"
+                      type="button"
+                      aria-label="Зберегти новину про ліцензію Parimatch"
+                    >
+                      <svg viewBox="0 0 18 22" aria-hidden="true">
+                        <path d="M1.5 1.5h15v18l-7.5-4-7.5 4v-18Z" />
+                      </svg>
+                    </button>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="last-new news_catalog_card">
+                    <a class="last-new__link" href="#">
+                      <img
+                        src="https://loremflickr.com/640/372/business,man?lock=22"
+                        alt="Представник державної установи"
+                        width="640"
+                        height="372"
+                        loading="lazy"
+                      />
+                      <div class="last-new__content">
+                        <h3 class="last-new__title">
+                          Гетманцев прокоментував заяву Мінцифри
+                        </h3>
+                        <p class="news_catalog_excerpt">
+                          Відповідь політик розмістив у Facebook. Гетманцев цитує
+                          постанову уряду щодо повноважень та питань...
+                        </p>
+                        <div class="last-new__meta">
+                          <time datetime="2026-06-04T19:05">
+                            04.06.2026 &#183; 19:05
+                          </time>
+                        </div>
+                      </div>
+                    </a>
+                    <button
+                      class="news_catalog_bookmark"
+                      type="button"
+                      aria-label="Зберегти новину із заявою Мінцифри"
+                    >
+                      <svg viewBox="0 0 18 22" aria-hidden="true">
+                        <path d="M1.5 1.5h15v18l-7.5-4-7.5 4v-18Z" />
+                      </svg>
+                    </button>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="last-new news_catalog_card">
+                    <a class="last-new__link" href="#">
+                      <img
+                        src="https://loremflickr.com/640/372/interview,business?lock=23"
+                        alt="Учасники ділової зустрічі"
+                        width="640"
+                        height="372"
+                        loading="lazy"
+                      />
+                      <div class="last-new__content">
+                        <h3 class="last-new__title">
+                          «Маніпуляції і підміна фактів»: Мінцифри спростовує
+                          Гетманцева
+                        </h3>
+                        <p class="news_catalog_excerpt">
+                          Про це йдеться в офіційній заяві Мінцифри,
+                          опублікованій на сайті відомства. У зверненні
+                          розбираються головні зауваження...
+                        </p>
+                        <div class="last-new__meta">
+                          <time datetime="2026-06-03T19:05">
+                            03.06.2026 &#183; 19:05
+                          </time>
+                        </div>
+                      </div>
+                    </a>
+                    <button
+                      class="news_catalog_bookmark"
+                      type="button"
+                      aria-label="Зберегти новину зі спростуванням Мінцифри"
+                    >
+                      <svg viewBox="0 0 18 22" aria-hidden="true">
+                        <path d="M1.5 1.5h15v18l-7.5-4-7.5 4v-18Z" />
+                      </svg>
+                    </button>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="last-new news_catalog_card">
+                    <a class="last-new__link" href="#">
+                      <img
+                        src="https://loremflickr.com/640/372/online,casino?lock=24"
+                        alt="Онлайн-платформа грального бізнесу"
+                        width="640"
+                        height="372"
+                        loading="lazy"
+                      />
+                      <div class="last-new__content">
+                        <h3 class="last-new__title">
+                          Запуск ДСОМ і 14 млрд грн податків: PlayCity звітувало
+                          про перший рік роботи
+                        </h3>
+                        <p class="news_catalog_excerpt">
+                          Про це повідомляє пресслужба регулятора. В агентстві
+                          звітують, що окрім податків за рік вдалося поповнити...
+                        </p>
+                        <div class="last-new__meta">
+                          <time datetime="2026-06-02T19:05">
+                            02.06.2026 &#183; 19:05
+                          </time>
+                        </div>
+                      </div>
+                    </a>
+                    <button
+                      class="news_catalog_bookmark"
+                      type="button"
+                      aria-label="Зберегти звіт PlayCity"
+                    >
+                      <svg viewBox="0 0 18 22" aria-hidden="true">
+                        <path d="M1.5 1.5h15v18l-7.5-4-7.5 4v-18Z" />
+                      </svg>
+                    </button>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="last-new news_catalog_card">
+                    <a class="last-new__link" href="#">
+                      <img
+                        src="https://loremflickr.com/640/372/business,meeting?lock=25"
+                        alt="Учасники робочої зустрічі"
+                        width="640"
+                        height="372"
+                        loading="lazy"
+                      />
+                      <div class="last-new__content">
+                        <h3 class="last-new__title">
+                          Борняков буде судитися з Гетманцевим
+                        </h3>
+                        <p class="news_catalog_excerpt">
+                          Про це у Facebook повідомив адвокат. Наразі, який
+                          представлятиме інтереси Борнякова в суді, підготовлено
+                          для звернення...
+                        </p>
+                        <div class="last-new__meta">
+                          <time datetime="2026-06-01T19:05">
+                            01.06.2026 &#183; 19:05
+                          </time>
+                        </div>
+                      </div>
+                    </a>
+                    <button
+                      class="news_catalog_bookmark"
+                      type="button"
+                      aria-label="Зберегти новину про судову справу"
+                    >
+                      <svg viewBox="0 0 18 22" aria-hidden="true">
+                        <path d="M1.5 1.5h15v18l-7.5-4-7.5 4v-18Z" />
+                      </svg>
+                    </button>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="last-new news_catalog_card">
+                    <a class="last-new__link" href="#">
+                      <img
+                        src="https://loremflickr.com/640/372/casino,slots?lock=26"
+                        alt="Гральні автомати та фішки казино"
+                        width="640"
+                        height="372"
+                        loading="lazy"
+                      />
+                      <div class="last-new__content">
+                        <h3 class="last-new__title">
+                          PlayCity оштрафувало Champion Casino на 4,3 млн
+                        </h3>
+                        <p class="news_catalog_excerpt">
+                          Під час перевірки співробітники агентства встановили,
+                          що компанія допустила розрахунки коштами третіх осіб...
+                        </p>
+                        <div class="last-new__meta">
+                          <time datetime="2026-05-29T19:05">
+                            29.05.2026 &#183; 19:05
+                          </time>
+                        </div>
+                      </div>
+                    </a>
+                    <button
+                      class="news_catalog_bookmark"
+                      type="button"
+                      aria-label="Зберегти новину про штраф Champion Casino"
+                    >
+                      <svg viewBox="0 0 18 22" aria-hidden="true">
+                        <path d="M1.5 1.5h15v18l-7.5-4-7.5 4v-18Z" />
+                      </svg>
+                    </button>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="last-new news_catalog_card">
+                    <a class="last-new__link" href="#">
+                      <img
+                        src="https://loremflickr.com/640/372/official,business?lock=27"
+                        alt="Посадовець під час офіційного заходу"
+                        width="640"
+                        height="372"
+                        loading="lazy"
+                      />
+                      <div class="last-new__content">
+                        <h3 class="last-new__title">
+                          Гетманцев пропонує обрати нового голову PlayCity на
+                          конкурсі
+                        </h3>
+                        <p class="news_catalog_excerpt">
+                          Наразі зазначимо, що питання про нового очільника
+                          PlayCity виникло на тлі останніх подій...
+                        </p>
+                        <div class="last-new__meta">
+                          <time datetime="2026-05-22T19:05">
+                            22.05.2026 &#183; 19:05
+                          </time>
+                        </div>
+                      </div>
+                    </a>
+                    <button
+                      class="news_catalog_bookmark"
+                      type="button"
+                      aria-label="Зберегти новину про конкурс PlayCity"
+                    >
+                      <svg viewBox="0 0 18 22" aria-hidden="true">
+                        <path d="M1.5 1.5h15v18l-7.5-4-7.5 4v-18Z" />
+                      </svg>
+                    </button>
+                  </article>
+                </div>
+
+                <div class="col">
+                  <article class="last-new news_catalog_card">
+                    <a class="last-new__link" href="#">
+                      <img
+                        src="https://loremflickr.com/640/372/conference,people?lock=28"
+                        alt="Учасники пресконференції"
+                        width="640"
+                        height="372"
+                        loading="lazy"
+                      />
+                      <div class="last-new__content">
+                        <h3 class="last-new__title">
+                          PlayCity вивела з-під Борнякова
+                        </h3>
+                        <p class="news_catalog_excerpt">
+                          Про це йдеться у постанові уряду. Агентство додали до
+                          відповідного списку органів. Раніше PlayCity
+                          підпорядковувалося...
+                        </p>
+                        <div class="last-new__meta">
+                          <time datetime="2026-05-18T19:05">
+                            18.05.2026 &#183; 19:05
+                          </time>
+                        </div>
+                      </div>
+                    </a>
+                    <button
+                      class="news_catalog_bookmark"
+                      type="button"
+                      aria-label="Зберегти новину про зміни в PlayCity"
+                    >
+                      <svg viewBox="0 0 18 22" aria-hidden="true">
+                        <path d="M1.5 1.5h15v18l-7.5-4-7.5 4v-18Z" />
+                      </svg>
+                    </button>
+                  </article>
+                </div>
+
+                <div class="col-12 mt-4">
+                  <a class="info-banner" href="#">
+                    <img
+                      class="info-banner__pc"
+                      src="img/info-banner-2.png"
+                      alt="Рішення для iGaming-бізнесу на всіх етапах розвитку"
+                      width="1344"
+                      height="132"
+                      loading="lazy"
+                    />
+                    <img
+                      class="info-banner__mob"
+                      src="img/info-banner-2.png"
+                      alt="Рішення для iGaming-бізнесу на всіх етапах розвитку"
+                      width="1344"
+                      height="132"
+                      loading="lazy"
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <nav class="news_pagination" aria-label="Сторінки новин">
+                <ul class="news_pagination_list">
+                  <li>
+                    <a
+                      class="news_pagination_link is_active"
+                      href="?topic=all&amp;sort=newest&amp;paged=1"
+                      aria-current="page"
+                    >
+                      1
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="news_pagination_link"
+                      href="?topic=all&amp;sort=newest&amp;paged=2"
+                    >
+                      2
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="news_pagination_link"
+                      href="?topic=all&amp;sort=newest&amp;paged=3"
+                    >
+                      3
+                    </a>
+                  </li>
+                  <li>
+                    <span class="news_pagination_dots" aria-hidden="true">
+                      …
+                    </span>
+                  </li>
+                  <li>
+                    <a
+                      class="news_pagination_link"
+                      href="?topic=all&amp;sort=newest&amp;paged=10"
+                    >
+                      10
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="news_pagination_link news_pagination_next"
+                      href="?topic=all&amp;sort=newest&amp;paged=2"
+                      aria-label="Наступна сторінка"
+                    >
+                      →
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </section>
         </div>
