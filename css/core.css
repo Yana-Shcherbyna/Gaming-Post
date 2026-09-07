@@ -710,3 +710,33 @@ table th {
   }
 }
 /* Preloader end */
+
+/* Breadcrumbs */
+.news_breadcrumbs {
+  border-bottom: 1px solid white;
+}
+
+.news_breadcrumbs_list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  margin: 0;
+  padding: 0;
+}
+
+.news_breadcrumbs_separator,
+.news_breadcrumbs_current {
+  color: var(--color);
+}
+
+body.light_theme .news_breadcrumbs_home svg path{
+fill: var(--color);
+}
+
+@media (max-width: 575px) {
+  .news_breadcrumbs_list {
+    min-height: 36px;
+  }
+}
+/* Breadcrumbs end */
