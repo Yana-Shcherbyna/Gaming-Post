@@ -10,7 +10,8 @@
 
   color: var(--color);
   background-color: var(--dark);
-  border-bottom: var(--article-card-border);
+  /* border-bottom: var(--article-card-border); */
+  /* border-bottom: 1px solid white; */
 }
 
 .header .container {
@@ -296,6 +297,7 @@
   scrollbar-color:
     color-mix(in srgb, var(--color-light) 30%, var(--dark))
     transparent;
+  border-bottom: 1px solid white;
 }
 
 .header_topics_list {
@@ -391,7 +393,8 @@
 }
 
 .header + .content {
-  padding-top: 115px;
+  /* padding-top: 115px; */
+  padding-top: 124px;
 }
 
 .header_topics {

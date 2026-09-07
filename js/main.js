@@ -332,6 +332,8 @@ document.addEventListener('includesLoaded', initHeaderControls);
     //   });
     // }
 
+   
+
     // Delegation
     document.body.addEventListener('click', onBodyClick);
 
@@ -410,4 +412,17 @@ document.addEventListener('DOMContentLoaded', () => {
       // }
     });
   });
+});
+
+
+document.addEventListener('click', (event) => {
+  const bookmarkButton = event.target.closest('.news_catalog_bookmark');
+
+  if (!bookmarkButton) {
+    return;
+  }
+
+  const isActive = bookmarkButton.classList.toggle('is_active');
+
+  bookmarkButton.setAttribute('aria-pressed', String(isActive));
 });
