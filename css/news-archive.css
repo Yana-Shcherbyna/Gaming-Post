@@ -222,6 +222,18 @@
 .news_pagination_next {
   color: var(--accent);
 }
+
+.news_catalog_bookmark_fill {
+  fill: transparent;
+}
+
+.news_catalog_bookmark_outline {
+  fill: #616b7d;
+}
+
+.news_catalog_bookmark.is_active path {
+  fill: var(--accent);
+}
 /* News catalog end */
 
 @media (hover: hover) and (pointer: fine) {
